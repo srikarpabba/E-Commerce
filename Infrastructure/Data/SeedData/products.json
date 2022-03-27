@@ -3,7 +3,7 @@
     "Name": "White Slim Fit Casual Shirt",
     "Description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas porttitor congue massa. Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo magna eros quis urna.",
     "Price": 1000,
-    "PictureUrl": "images/products/casualshirt.png",
+    "PictureUrl": "images/products/casualshirt.webp",
     "ProductTypeId": 1,
     "ProductBrandId": 1
   },
@@ -11,7 +11,7 @@
     "Name": "Relaxed Fit Checked Shirt",
     "Description": "Nunc viverra imperdiet enim. Fusce est. Vivamus a tellus.",
     "Price": 1100,
-    "PictureUrl": "images/products/checkedshirt.png",
+    "PictureUrl": "images/products/checkedshirt.webp",
     "ProductTypeId": 1,
     "ProductBrandId": 2
   },
@@ -19,7 +19,7 @@
     "Name": "Tapered Fit Stretchable Jeans",
     "Description": "Suspendisse dui purus, scelerisque at, vulputate vitae, pretium mattis, nunc. Mauris eget neque at sem venenatis eleifend. Ut nonummy.",
     "Price": 180,
-    "PictureUrl": "images/products/stretchablejeans.png",
+    "PictureUrl": "images/products/stretchablejeans.jpg",
     "ProductTypeId": 2,
     "ProductBrandId": 1
   },
@@ -27,7 +27,7 @@
     "Name": "Mid-Rise Clean Look Stretchable Jeans",
     "Description": "Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Proin pharetra nonummy pede. Mauris et orci.",
     "Price": 300,
-    "PictureUrl": "images/products/lookstretchablejeans.png",
+    "PictureUrl": "images/products/lookstretchablejeans.webp",
     "ProductTypeId": 2,
     "ProductBrandId": 2
   },
@@ -35,7 +35,7 @@
     "Name": "Downshifter 10 Running Shoes",
     "Description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas porttitor congue massa. Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo magna eros quis urna.",
     "Price": 3595,
-    "PictureUrl": "images/products/downshiftershoes.png",
+    "PictureUrl": "images/products/downshiftershoes.webp",
     "ProductTypeId": 3,
     "ProductBrandId": 7
   },
@@ -43,7 +43,7 @@
     "Name": "White Trainers",
     "Description": "Aenean nec lorem. In porttitor. Donec laoreet nonummy augue.",
     "Price": 1999,
-    "PictureUrl": "images/products/whitetrainers.png",
+    "PictureUrl": "images/products/whitetrainers.webp",
     "ProductTypeId": 3,
     "ProductBrandId": 5
   },
@@ -51,7 +51,7 @@
     "Name": "Black & Pink Floral Printed Wrap Dress",
     "Description": "Black and pink printed woven wrap dress with tie-up detail, has a v-neck, three-quarter sleeves, concealed zip closure, an attached lining, and flared hem",
     "Price": 839,
-    "PictureUrl": "images/products/wrapdress.png",
+    "PictureUrl": "images/products/wrapdress.webp",
     "ProductTypeId": 5,
     "ProductBrandId": 9
   },
@@ -67,7 +67,7 @@
     "Name": "Women Navy Blue & Off-White Printed Kurta with Palazzos & Dupatta",
     "Description": "Navy Blue and off-white printed straight calf length kurta with sequinned detail, has a round neck, three-quarter sleeves, side slits and has a linning",
     "Price": 2759,
-    "PictureUrl": "images/products/palazzos.png",
+    "PictureUrl": "images/products/palazzos.webp",
     "ProductTypeId": 5,
     "ProductBrandId": 8
   },
@@ -75,7 +75,7 @@
     "Name": "Women Black Skinny Fit Mid-Rise Clean Look Stretchable Cropped Jeans",
     "Description": "Black dark wash 5-pocket mid-rise jeans, clean look with no fade, has a button and zip closure, waistband with belt loops",
     "Price": 569,
-    "PictureUrl": "images/products/blackpant.png",
+    "PictureUrl": "images/products/blackpant.webp",
     "ProductTypeId": 2,
     "ProductBrandId": 5
   },
@@ -83,7 +83,7 @@
     "Name": "Women Blue Pure Cotton Jogger High-Rise Non-Stretchable Clean Look Jeans",
     "Description": "Blue medium wash 5-pocket high-rise jeans, clean look, light fade, has a button and zip closure, and waistband with belt loops",
     "Price": 799,
-    "PictureUrl": "images/products/cottonpant.png",
+    "PictureUrl": "images/products/cottonpant.jpg",
     "ProductTypeId": 2,
     "ProductBrandId": 9
   },
@@ -91,7 +91,7 @@
     "Name": "White Solid Cotton Jersey T-shirt",
     "Description": "Straight, soft cotton jersey T-shirt in a relaxed fit with a round, rib-trimmed neckline.",
     "Price": 399,
-    "PictureUrl": "images/products/whitetshirt.png",
+    "PictureUrl": "images/products/whitetshirt.webp",
     "ProductTypeId": 4,
     "ProductBrandId": 5
   },
@@ -99,7 +99,7 @@
     "Name": "Women Multicoloured Colourblocked Drop-Shoulder Sleeves T-shirt",
     "Description": "Multicoloured Tshirt for women",
     "Price": 2499,
-    "PictureUrl": "images/products/multicolored.png",
+    "PictureUrl": "images/products/multicolored.jpg",
     "ProductTypeId": 4,
     "ProductBrandId": 1
   },
@@ -107,7 +107,7 @@
     "Name": "Woman Blue Printed T-shirt",
     "Description": "T-shirt in soft, printed cotton jersey. Relaxed fit with a round, trimmed neckline, dropped shoulders and wide sleeves.",
     "Price": 909,
-    "PictureUrl": "images/products/bluetshirt.png",
+    "PictureUrl": "images/products/bluetshirt.jpg",
     "ProductTypeId": 4,
     "ProductBrandId": 5
   },
@@ -115,7 +115,7 @@
     "Name": "Women Black & Teal Blue Solid City Rep Training Or Gym Shoes",
     "Description": "Tough Up Top: The durable upper is reinforced with overlays to stand up to the demands of outdoor workouts.",
     "Price": 4245,
-    "PictureUrl": "images/products/gymshoes.png",
+    "PictureUrl": "images/products/gymshoes.webp",
     "ProductTypeId": 3,
     "ProductBrandId": 7
   },
@@ -123,7 +123,7 @@
     "Name": "Women Beige Solid Trainers",
     "Description": "Trainers in mesh and imitation leather with reflective sections. Padded edge and tongue, lacing at the front and a loop at the back. Mesh linings and insoles and patterned soles. Height of soles 6 cm.",
     "Price": 2699,
-    "PictureUrl": "images/products/trainershoes.png",
+    "PictureUrl": "images/products/trainershoes.webp",
     "ProductTypeId": 3,
     "ProductBrandId": 5
   },
@@ -131,7 +131,7 @@
     "Name": "Women Black Solid Sandals",
     "Description": "A pair of black open toe sandals, has mid-top styling, open back detail",
     "Price": 1299,
-    "PictureUrl": "images/products/blacksandals.png",
+    "PictureUrl": "images/products/blacksandals.webp",
     "ProductTypeId": 3,
     "ProductBrandId": 10
   },
@@ -139,7 +139,7 @@
     "Name": "Men Brown VENTURE RUNNER Suede Sneakers",
     "Description": "A pair of round toe brown sneakers ,has regular styling,Lace-ups detail",
     "Price": 4670,
-    "PictureUrl": "images/products/suedesneakers.png",
+    "PictureUrl": "images/products/suedesneakers.webp",
     "ProductTypeId": 3,
     "ProductBrandId": 7
   }
