@@ -1,7 +1,7 @@
 .desktop-navLink:hover {
   text-decoration: underline;
-  text-decoration-color: rgb(255, 8, 0);
-  -moz-text-decoration-color: rgb(255, 8, 0);
+  text-decoration-color: rgb(255, 255, 255);
+  -moz-text-decoration-color: rgb(255, 255, 255);
   text-decoration-thickness: 4px;
 }
 
@@ -21,10 +21,10 @@
 
 a {
   text-decoration: none;
-  color: #343a40;
+  color: #fff;
 
   &.active {
-    color: rgb(255, 8, 0);
+    color: rgb(255, 255, 255);
   }
 }
 
