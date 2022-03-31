@@ -3,19 +3,19 @@ using Microsoft.EntityFrameworkCore;
 using API.Helpers;
 using API.Middleware;
 using API.Extensions;
+using StackExchange.Redis;
 
 namespace API
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration)
+        private readonly IConfiguration _config;
+        public Startup(IConfiguration config)
         {
-            Configuration = configuration;
+             _config = config;
         }
 
-        public IConfiguration Configuration { get; }
-
-
+       
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
@@ -24,8 +24,13 @@ namespace API
             services.AddControllers();
             services.AddDbContext<StoreContext>(x =>
                       x.UseSqlServer(
-                          Configuration.GetConnectionString("DefaultConnection")));
+                          _config.GetConnectionString("DefaultConnection")));
 
+            services.AddSingleton<IConnectionMultiplexer>(c =>
+                       {
+                           var configuration = ConfigurationOptions.Parse(_config.GetConnectionString("Redis"), true);
+                           return ConnectionMultiplexer.Connect(configuration);
+                       });
             services.AddApplicationServices();
             services.AddSwaggerDocumentation();
             services.AddCors(opt =>
