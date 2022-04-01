@@ -1,0 +1,7 @@
+{
+  "name": "MyFasho",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
