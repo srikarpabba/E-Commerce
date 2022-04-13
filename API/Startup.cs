@@ -4,6 +4,7 @@ using API.Helpers;
 using API.Middleware;
 using API.Extensions;
 using StackExchange.Redis;
+using Infrastructure.Identity;
 
 namespace API
 {
@@ -26,12 +27,18 @@ namespace API
                       x.UseSqlServer(
                           _config.GetConnectionString("DefaultConnection")));
 
+            services.AddDbContext<AppIdentityDbContext>(x => 
+            {
+                x.UseSqlServer(_config.GetConnectionString("DefaultConnection"));
+            });              
+
             services.AddSingleton<IConnectionMultiplexer>(c =>
                        {
                            var configuration = ConfigurationOptions.Parse(_config.GetConnectionString("Redis"), true);
                            return ConnectionMultiplexer.Connect(configuration);
                        });
             services.AddApplicationServices();
+            services.AddIdentityServices(_config);
             services.AddSwaggerDocumentation();
             services.AddCors(opt =>
             {
@@ -56,6 +63,7 @@ namespace API
 
             app.UseCors("CorsPolicy");
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseSwaggerDocumentation();
