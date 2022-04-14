@@ -1,7 +1,7 @@
-using Infrastructure.Data;
-using Microsoft.AspNetCore.Mvc;
 using API.Errors;
+using Infrastructure.Data;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 
 namespace API.Controllers
 {
@@ -11,7 +11,6 @@ namespace API.Controllers
         public BuggyController(StoreContext context)
         {
             _context = context;
-
         }
 
         [HttpGet("testauth")]
@@ -26,13 +25,10 @@ namespace API.Controllers
         {
             var thing = _context.Products.Find(42);
 
-            if (thing == null)
-            {
-                return NotFound(new ApiResponse(404));
-            }
+            if (thing == null) return NotFound(new ApiResponse(404));
+
             return Ok();
         }
-
 
         [HttpGet("servererror")]
         public ActionResult GetServerError()
@@ -44,13 +40,11 @@ namespace API.Controllers
             return Ok();
         }
 
-
         [HttpGet("badrequest")]
         public ActionResult GetBadRequest()
         {
             return BadRequest(new ApiResponse(400));
         }
-
 
         [HttpGet("badrequest/{id}")]
         public ActionResult GetNotFoundRequest(int id)

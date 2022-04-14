@@ -2,10 +2,10 @@ namespace Core.Entities.OrderAggregate
 {
     public class Address
     {
-        public Address ()
+        public Address()
         {
-            
         }
+
         public Address(string firstName, string lastName, string phoneNumber, string addressLine, string city, string state, string zipCode)
         {
             FirstName = firstName;

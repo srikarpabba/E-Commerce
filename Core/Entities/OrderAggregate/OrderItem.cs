@@ -4,8 +4,8 @@ namespace Core.Entities.OrderAggregate
     {
         public OrderItem()
         {
-            
-        } 
+        }
+
         public OrderItem(ProductItemOrdered itemOrdered, decimal price, int quantity)
         {
             ItemOrdered = itemOrdered;

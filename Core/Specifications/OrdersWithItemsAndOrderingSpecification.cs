@@ -2,7 +2,7 @@ using Core.Entities.OrderAggregate;
 
 namespace Core.Specifications
 {
-    public class OrdersWithItemsAndOrderingSpecification : BaseSpecification<Order>
+    public class OrdersWithItemsAndOrderingSpecification : BaseSpecifcation<Order>
     {
         public OrdersWithItemsAndOrderingSpecification(string email) : base(o => o.BuyerEmail == email)
         {
@@ -18,5 +18,4 @@ namespace Core.Specifications
             AddInclude(o => o.DeliveryMethod);
         }
     }
-
 }

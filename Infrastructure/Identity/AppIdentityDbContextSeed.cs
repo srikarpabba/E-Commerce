@@ -11,19 +11,19 @@ namespace Infrastructure.Identity
             {
                 var user = new AppUser
                 {
-                    DisplayName = "SrikarPabba",
+                    DisplayName = "Srikar",
                     Email = "pabbasrikar@gmail.com",
-                    UserName = "SrikarPabba",
+                    UserName = "pabbasrikar@gmail.com",
                     PhoneNumber = "8608708021",
-                    Address = new Address{
+                    Address = new Address
+                    {
                         FirstName = "Srikar",
-                        LastName = "Pabba",                        
-                        AddressLine = "13-30/16",
+                        LastName = "Pabba",
+                        AddressLine = "13-30/16, Beeramguda",
                         City = "Hyderabad",
                         State = "TS",
                         ZipCode = "502032"
                     }
-
                 };
 
                 await userManager.CreateAsync(user, "Pa$$w0rd");

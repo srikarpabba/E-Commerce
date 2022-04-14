@@ -2,7 +2,7 @@ using Core.Entities.OrderAggregate;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace Infrastructure.Data.config
+namespace Infrastructure.Data.Config
 {
     public class OrderConfiguration : IEntityTypeConfiguration<Order>
     {
@@ -16,9 +16,9 @@ namespace Infrastructure.Data.config
                 .HasConversion(
                     o => o.ToString(),
                     o => (OrderStatus)Enum.Parse(typeof(OrderStatus), o)
-
                 );
 
+            builder.Property(i => i.Subtotal).HasColumnType("decimal(18,2)");
             builder.HasMany(o => o.OrderItems).WithOne().OnDelete(DeleteBehavior.Cascade);
         }
     }

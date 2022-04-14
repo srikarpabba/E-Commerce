@@ -9,11 +9,12 @@ namespace Infrastructure.Services
     {
         private readonly IBasketRepository _basketRepo;
         private readonly IUnitOfWork _unitOfWork;
+     
         public OrderService(IBasketRepository basketRepo, IUnitOfWork unitOfWork)
         {
+          
             _unitOfWork = unitOfWork;
             _basketRepo = basketRepo;
-
         }
         public async Task<Order> CreateOrderAsync(string buyerEmail, int delieveryMethodId, string basketId, Address shippingAddress)
         {
@@ -21,8 +22,7 @@ namespace Infrastructure.Services
             var basket = await _basketRepo.GetBasketAsync(basketId);
 
             // get items from the product repo
-            var items = new List<OrderItem>();
-
+             var items = new List<OrderItem>();
             foreach (var item in basket.Items)
             {
                 var productItem = await _unitOfWork.Repository<Product>().GetByIdAsync(item.Id);
@@ -39,7 +39,7 @@ namespace Infrastructure.Services
 
 
             // create order
-            var order = new Order(items, buyerEmail, shippingAddress, deliveryMethod, subtotal);
+             var order = new Order(items, buyerEmail, shippingAddress, deliveryMethod, subtotal);
             _unitOfWork.Repository<Order>().Add(order);
 
             // save to db
@@ -57,7 +57,7 @@ namespace Infrastructure.Services
 
         }
 
-        public async Task<IReadOnlyList<DeliveryMethod>> GetDeliveryMethodsAsync()
+          public async Task<IReadOnlyList<DeliveryMethod>> GetDeliveryMethodsAsync()
         {
             return await _unitOfWork.Repository<DeliveryMethod>().ListAllAsync();
         }

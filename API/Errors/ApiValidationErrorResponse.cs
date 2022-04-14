@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 namespace API.Errors
 {
     public class ApiValidationErrorResponse : ApiResponse
@@ -6,6 +8,6 @@ namespace API.Errors
         {
         }
 
-        public IEnumerable<string> Errors {get; set;}
+        public IEnumerable<string> Errors { get; set; }
     }
 }
