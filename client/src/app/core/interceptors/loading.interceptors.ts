@@ -1,27 +1,29 @@
-import { HttpEvent, HttpHandler, HttpInterceptor, HttpRequest } from "@angular/common/http";
-import { Injectable } from "@angular/core";
-import { delay, finalize, Observable } from "rxjs";
-import { BusyService } from "../services/busy.service";
-
+import { HttpEvent, HttpHandler, HttpInterceptor, HttpRequest } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { finalize } from 'rxjs/operators';
+import { BusyService } from '../services/busy.service';
 
 @Injectable()
 export class LoadingInterceptor implements HttpInterceptor {
 
-    constructor(private busyService: BusyService) {}
-    
-    intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-        if (req.method === 'POST' && req.url.includes('orders')) {
-            return next.handle(req);
-          }
-        if (!req.url.includes('emailexists')) {
-            return next.handle(req);
-        }   
-        this.busyService.busy();     
-        return next.handle(req).pipe(
-        delay(1000),
-        finalize(() => {
-            this.busyService.idle();
-        })
-        );
+  constructor(private busyService: BusyService) { }
+
+  intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
+    if (request.method === 'POST' && request.url.includes('orders')) {
+      return next.handle(request);
     }
+    if (request.method === 'DELETE') {
+      return next.handle(request);
+    }
+    if (request.url.includes('emailexists')) {
+      return next.handle(request);
+    }
+    this.busyService.busy();
+    return next.handle(request).pipe(
+      finalize(() => {
+        this.busyService.idle();
+      })
+    );
+  }
 }
