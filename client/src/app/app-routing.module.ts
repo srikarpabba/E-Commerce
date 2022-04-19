@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { Routes, RouterModule } from '@angular/router';
+import { AdminGuard } from './core/guards/admin.guard';
 import { AuthGuard } from './core/guards/auth.guard';
 import { NotFoundComponent } from './core/not-found/not-found.component';
 import { ServerErrorComponent } from './core/server-error/server-error.component';
@@ -43,16 +44,21 @@ const routes: Routes = [
     data: { breadcrumb: 'Checkout' },
   },
   {
-    path: 'orders', 
-    canActivate: [AuthGuard],
-    loadChildren: () => import('./orders/orders.module').then(mod => mod.OrdersModule),
-    data: { breadcrumb: 'Orders' }
+    path: 'account',
+    loadChildren: () => import('./account/account.module').then((mod) => mod.AccountModule),
+    data: {breadcrumb: {skip: true}}
   },
   {
-    path: 'account',
-    loadChildren: () =>
-      import('./account/account.module').then((mod) => mod.AccountModule),
-    data: { breadcrumb: { skip: true } },
+    path: 'orders',
+    canActivate: [AuthGuard],
+    loadChildren: () => import('./orders/order.module').then((mod) => mod.OrderModule),
+    data: {breadcrumb: 'Orders'}
+  },
+  {
+    path: 'admin',
+    canActivate: [AuthGuard, AdminGuard],
+    loadChildren: () => import('./admin/admin.module').then(mod => mod.AdminModule),
+    data: {breadcrumb: 'Admin'}
   },
   { path: '**', redirectTo: 'not-found', pathMatch: 'full' },
 ];

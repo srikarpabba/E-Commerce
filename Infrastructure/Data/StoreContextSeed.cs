@@ -42,18 +42,44 @@ namespace Infrastructure.Data
 
                 }
 
-                if (!context.Products.Any())
+                if (!context.ProductGenders.Any())
                 {
-                    var productsData = File.ReadAllText("../Infrastructure/Data/SeedData/products.json");
-                    var products = JsonSerializer.Deserialize<List<Product>>(productsData);
+                    var gendersData = File.ReadAllText("../Infrastructure/Data/SeedData/genders.json");
+                    var genders = JsonSerializer.Deserialize<List<ProductGender>>(gendersData);
 
-                    foreach (var item in products)
+                    foreach (var item in genders)
                     {
-                        context.Products.Add(item);
+                        context.ProductGenders.Add(item);
                     }
 
                     await context.SaveChangesAsync();
                 }
+
+                if (!context.Products.Any())
+                {
+                    var productsData = File.ReadAllText("../Infrastructure/Data/SeedData/products.json");
+
+                    var products = JsonSerializer.Deserialize<List<ProductSeedModel>>(productsData);
+
+                    foreach (var item in products)
+                    {
+                        var pictureFileName = item.PictureUrl.Substring(16);
+                        var product = new Product
+                        {
+                            Name = item.Name,
+                            Description = item.Description,
+                            Price = item.Price,
+                            ProductBrandId = item.ProductBrandId,
+                            ProductTypeId = item.ProductTypeId,
+                            ProductGenderId = item.ProductGenderId
+                        };
+                        product.AddPhoto(item.PictureUrl, pictureFileName);
+                        context.Products.Add(product);
+                    }
+
+                    await context.SaveChangesAsync();
+                }
+
                 if (!context.DeliveryMethods.Any())
                 {
                     var dmData = File.ReadAllText("../Infrastructure/Data/SeedData/delivery.json");

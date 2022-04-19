@@ -39,6 +39,7 @@ px-md-4 bg-white border-bottom shadow-sm">
     <a class="p-2 desktop-navLink" [routerLink]="['/']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">home</a>
     <a class="p-2 desktop-navLink" routerLink="/shop" routerLinkActive="active">shop</a>
     <a class="p-2 desktop-navLink" routerLink="/test-error" routerLinkActive="active">Errors</a>
+    <a *ngIf="(isAdmin$ | async)" class="p-2 desktop-navLink" routerLink="/admin" routerLinkActive="active">Admin</a>
 </nav>
 
 

@@ -10,18 +10,18 @@ import { IUser } from 'src/app/shared/models/user';
   templateUrl: './nav-bar.component.html',
   styleUrls: ['./nav-bar.component.scss'],
 })
+
 export class NavBarComponent implements OnInit {
   basket$: Observable<IBasket>;
   currentUser$: Observable<IUser>;
+  isAdmin$: Observable<boolean>;
 
-  constructor(
-    private basketService: BasketService,
-    private accountService: AccountService
-  ) {}
+  constructor(private basketService: BasketService, private accountService: AccountService) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.basket$ = this.basketService.basket$;
     this.currentUser$ = this.accountService.currentUser$;
+    this.isAdmin$ = this.accountService.isAdmin$;
   }
 
   logout() {

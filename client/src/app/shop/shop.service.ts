@@ -4,6 +4,7 @@ import { of } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 import { IBrand } from '../shared/models/brand';
+import { IGender } from '../shared/models/gender';
 import { IPagination, Pagination } from '../shared/models/pagination';
 import { IProduct } from '../shared/models/product';
 import { IType } from '../shared/models/productType';
@@ -17,6 +18,7 @@ export class ShopService {
   products: IProduct[] = [];
   brands: IBrand[] = [];
   types: IType[] = [];
+  genders: IGender[] = [];
   pagination = new Pagination();
   shopParams = new ShopParams();
   productCache = new Map();
@@ -43,6 +45,10 @@ export class ShopService {
 
     if (this.shopParams.typeId !== 0) {
       params = params.append('typeId', this.shopParams.typeId.toString())
+    }
+
+    if (this.shopParams.genderId !== 0) {
+      params = params.append('genderId', this.shopParams.genderId.toString())
     }
 
     if (this.shopParams.search) {
@@ -104,6 +110,18 @@ export class ShopService {
     return this.http.get<IType[]>(this.baseUrl + 'products/types').pipe(
       map(response => {
         this.types = response;
+        return response;
+      })
+    )
+  }
+
+  getGenders() {
+    if (this.genders.length > 0) {
+      return of(this.genders);
+    }
+    return this.http.get<IGender[]>(this.baseUrl + 'products/genders').pipe(
+      map(response => {
+        this.genders = response;
         return response;
       })
     )

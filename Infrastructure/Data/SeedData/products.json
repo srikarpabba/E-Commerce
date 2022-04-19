@@ -5,7 +5,8 @@
     "Price": 1000,
     "PictureUrl": "images/products/casualshirt.webp",
     "ProductTypeId": 1,
-    "ProductBrandId": 1
+    "ProductBrandId": 1,
+    "ProductGenderId": 1
   },
   {
     "Name": "Relaxed Fit Checked Shirt",
@@ -13,7 +14,8 @@
     "Price": 1100,
     "PictureUrl": "images/products/checkedshirt.webp",
     "ProductTypeId": 1,
-    "ProductBrandId": 2
+    "ProductBrandId": 2,
+    "ProductGenderId": 1
   },
   {
     "Name": "Tapered Fit Stretchable Jeans",
@@ -21,7 +23,8 @@
     "Price": 180,
     "PictureUrl": "images/products/stretchablejeans.jpg",
     "ProductTypeId": 2,
-    "ProductBrandId": 1
+    "ProductBrandId": 1,
+    "ProductGenderId": 1
   },
   {
     "Name": "Mid-Rise Clean Look Stretchable Jeans",
@@ -29,7 +32,8 @@
     "Price": 300,
     "PictureUrl": "images/products/lookstretchablejeans.webp",
     "ProductTypeId": 2,
-    "ProductBrandId": 2
+    "ProductBrandId": 2,
+    "ProductGenderId": 1
   },
   {
     "Name": "Downshifter 10 Running Shoes",
@@ -37,7 +41,8 @@
     "Price": 3595,
     "PictureUrl": "images/products/downshiftershoes.webp",
     "ProductTypeId": 3,
-    "ProductBrandId": 7
+    "ProductBrandId": 7,
+    "ProductGenderId": 1
   },
   {
     "Name": "White Trainers",
@@ -45,7 +50,8 @@
     "Price": 1999,
     "PictureUrl": "images/products/whitetrainers.webp",
     "ProductTypeId": 3,
-    "ProductBrandId": 5
+    "ProductBrandId": 5,
+    "ProductGenderId": 1
   },
   {
     "Name": "Black & Pink Floral Printed Wrap Dress",
@@ -53,7 +59,8 @@
     "Price": 839,
     "PictureUrl": "images/products/wrapdress.webp",
     "ProductTypeId": 5,
-    "ProductBrandId": 9
+    "ProductBrandId": 9,
+    "ProductGenderId": 2
   },
   {
     "Name": "Women Turquoise Blue Motifs Printed Panelled Cotton Kurta with Churidar & Dupatta",
@@ -61,7 +68,8 @@
     "Price": 2747,
     "PictureUrl": "images/products/dupatta.png",
     "ProductTypeId": 5,
-    "ProductBrandId": 8
+    "ProductBrandId": 8,
+    "ProductGenderId": 2
   },
   {
     "Name": "Women Navy Blue & Off-White Printed Kurta with Palazzos & Dupatta",
@@ -69,7 +77,8 @@
     "Price": 2759,
     "PictureUrl": "images/products/palazzos.webp",
     "ProductTypeId": 5,
-    "ProductBrandId": 8
+    "ProductBrandId": 8,
+    "ProductGenderId": 2
   },
   {
     "Name": "Women Black Skinny Fit Mid-Rise Clean Look Stretchable Cropped Jeans",
@@ -77,7 +86,8 @@
     "Price": 569,
     "PictureUrl": "images/products/blackpant.webp",
     "ProductTypeId": 2,
-    "ProductBrandId": 5
+    "ProductBrandId": 5,
+    "ProductGenderId": 2
   },
   {
     "Name": "Women Blue Pure Cotton Jogger High-Rise Non-Stretchable Clean Look Jeans",
@@ -85,7 +95,8 @@
     "Price": 799,
     "PictureUrl": "images/products/cottonpant.jpg",
     "ProductTypeId": 2,
-    "ProductBrandId": 9
+    "ProductBrandId": 9,
+    "ProductGenderId": 2
   },
   {
     "Name": "White Solid Cotton Jersey T-shirt",
@@ -93,7 +104,8 @@
     "Price": 399,
     "PictureUrl": "images/products/whitetshirt.webp",
     "ProductTypeId": 4,
-    "ProductBrandId": 5
+    "ProductBrandId": 5,
+    "ProductGenderId": 2
   },
   {
     "Name": "Women Multicoloured Colourblocked Drop-Shoulder Sleeves T-shirt",
@@ -101,7 +113,8 @@
     "Price": 2499,
     "PictureUrl": "images/products/multicolored.jpg",
     "ProductTypeId": 4,
-    "ProductBrandId": 1
+    "ProductBrandId": 1,
+    "ProductGenderId": 2
   },
   {
     "Name": "Woman Blue Printed T-shirt",
@@ -109,7 +122,8 @@
     "Price": 909,
     "PictureUrl": "images/products/bluetshirt.jpg",
     "ProductTypeId": 4,
-    "ProductBrandId": 5
+    "ProductBrandId": 5,
+    "ProductGenderId": 2
   },
   {
     "Name": "Women Black & Teal Blue Solid City Rep Training Or Gym Shoes",
@@ -117,7 +131,8 @@
     "Price": 4245,
     "PictureUrl": "images/products/gymshoes.webp",
     "ProductTypeId": 3,
-    "ProductBrandId": 7
+    "ProductBrandId": 7,
+    "ProductGenderId": 2
   },
   {
     "Name": "Women Beige Solid Trainers",
@@ -125,7 +140,8 @@
     "Price": 2699,
     "PictureUrl": "images/products/trainershoes.webp",
     "ProductTypeId": 3,
-    "ProductBrandId": 5
+    "ProductBrandId": 5,
+    "ProductGenderId": 2
   },
   {
     "Name": "Women Black Solid Sandals",
@@ -133,7 +149,8 @@
     "Price": 1299,
     "PictureUrl": "images/products/blacksandals.webp",
     "ProductTypeId": 3,
-    "ProductBrandId": 10
+    "ProductBrandId": 10,
+    "ProductGenderId": 2
   },
   {
     "Name": "Men Brown VENTURE RUNNER Suede Sneakers",
@@ -141,6 +158,7 @@
     "Price": 4670,
     "PictureUrl": "images/products/suedesneakers.webp",
     "ProductTypeId": 3,
-    "ProductBrandId": 7
+    "ProductBrandId": 7,
+    "ProductGenderId": 1
   }
 ]

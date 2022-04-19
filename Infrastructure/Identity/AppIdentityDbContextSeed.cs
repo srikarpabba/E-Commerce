@@ -5,12 +5,14 @@ namespace Infrastructure.Identity
 {
     public class AppIdentityDbContextSeed
     {
-        public static async Task SeedUsersAsync(UserManager<AppUser> userManager)
+        public static async Task SeedUsersAsync(UserManager<AppUser> userManager, RoleManager<AppRole> roleManager)
         {
             if (!userManager.Users.Any())
             {
-                var user = new AppUser
+                var users = new List<AppUser>
                 {
+                    new AppUser
+                    {
                     DisplayName = "Srikar",
                     Email = "pabbasrikar@gmail.com",
                     UserName = "pabbasrikar@gmail.com",
@@ -24,9 +26,35 @@ namespace Infrastructure.Identity
                         State = "TS",
                         ZipCode = "502032"
                     }
+                    },
+                    new AppUser
+                    {
+                        DisplayName = "Admin",
+                        Email = "admin@myfasho.com",
+                        UserName = "admin@myfasho.com",
+                        PhoneNumber = "1234567890"
+                    }
                 };
 
-                await userManager.CreateAsync(user, "Pa$$w0rd");
+                var roles = new List<AppRole>
+                {
+                    new AppRole {Name = "Admin"},
+                    new AppRole {Name = "Member"}
+                };
+
+                foreach (var role in roles)
+                {
+                    await roleManager.CreateAsync(role);
+                }
+
+                foreach (var user in users)
+                {
+                    await userManager.CreateAsync(user, "Pa$$w0rd");
+                    await userManager.AddToRoleAsync(user, "Member");
+                    if (user.Email == "admin@myfasho.com") await userManager.AddToRoleAsync(user, "Admin");
+                }
+
+
             }
         }
     }

@@ -1,25 +1,332 @@
 <carousel>
     <slide>
-        <img src="assets/images/hero1.webp" alt="first slide" style="display: block; width: 100%;" routerLink="/shop">
+        <img src="assets/images/hero1.webp" alt="first slide" style="display: block; width: 100%;">
     </slide>
     <slide>
-        <img src="assets/images/hero2.webp" alt="second slide" style="display: block; width: 100%;" routerLink="/shop">
+        <img src="assets/images/hero2.webp" alt="second slide" style="display: block; width: 100%;">
     </slide>
     <slide>
-        <img src="assets/images/hero3.webp" alt="third slide" style="display: block; width: 100%;" routerLink="/shop">
+        <img src="assets/images/hero3.webp" alt="third slide" style="display: block; width: 100%;">
     </slide>
     <slide>
-        <img src="assets/images/hero4.jpg" alt="fourth slide" style="display: block; width: 100%;" routerLink="/shop">
+        <img src="assets/images/hero4.jpg" alt="fourth slide" style="display: block; width: 100%;">
     </slide>
     <slide>
-        <img src="assets/images/hero5.jpg" alt="fifth slide" style="display: block; width: 100%;" routerLink="/shop">
+        <img src="assets/images/hero5.jpg" alt="fifth slide" style="display: block; width: 100%;">
     </slide>
-    
+
 </carousel>
 
-<section class="featured">
-    <div class="d-flex justify-content-center pt-4">
-        <h1>Welcome to the Shop!</h1>
+
+
+
+
+<section class="section products-main pt-4">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="heading_container heading_center">
+                    <h2>New arrivals</h2>
+                    <p>The best Online sales to shop these weekend</p>
+                </div>
+            </div>
+        </div>
+        <div class="row py-5">
+            <div class="col-lg-3 col-12 col-md-6 col-sm-6 mb-5" *ngFor="let item of girls">
+                <div class="product">
+                    <div class="product-wrap">
+                        <img src="{{item.pictureUrl}}" alt="{{item.name}}" class="img-fluid bg-light"
+                            style="width: min-content;">
+                    </div>
+                    <div class="py-3">
+                        <h4 class="product-title h5 mb-0"><a routerLink="/shop/{{item.id}}">
+                                {{item.name}}
+                            </a></h4>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </section>
 
+<!-- arrival section -->
+<section class="arrival_section">
+    <div class="container">
+        <div class="box">
+            <div class="arrival_bg_box">
+                <img src="assets/images/arrival-bg.png" alt="">
+            </div>
+            <div class="row">
+                <div class="col-md-6 ms-auto">
+                    <div class="heading_container remove_line_bt">
+                        <h2>
+                            #NewArrivals
+                        </h2>
+                    </div>
+                    <p style="margin-top: 20px;margin-bottom: 30px;">
+                        Vitae fugiat laboriosam officia perferendis provident aliquid voluptatibus dolorem, fugit ullam
+                        sit
+                        earum id eaque nisi hic? Tenetur commodi, nisi rem vel, ea eaque ab ipsa, autem similique ex
+                        unde!
+                    </p>
+                    <div class="btn-box">
+                        <a href="#" class="btn btn-main"><i class="ti-bag mr-2"></i>Shop Now </a>                        
+                     </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- end arrival section -->
+
+
+
+
+
+
+<!-- why section -->
+<section class="why_section layout_padding">
+    <div class="container">
+        <div class="heading_container heading_center">
+            <h2>
+                Why Shop With Us
+            </h2>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="box ">
+                    <div class="img-box">
+                        <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                            xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 297 297"
+                            style="enable-background:new 0 0 297 297;" xml:space="preserve">
+                            <g>
+                                <g>
+                                    <g>
+                                        <g>
+                                            <circle style="fill:#E3E5E4;" cx="148.5" cy="148.5" r="148.5" />
+                                        </g>
+                                    </g>
+                                </g>
+                                <path style="fill:#929DA5;"
+                                    d="M217.761,120.331L49.5,198l99,99c66.562,0,122.894-43.794,141.758-104.139L217.761,120.331z" />
+                                <g>
+                                    <path style="fill:#C63C22;" d="M249.688,198h-72.395v-82.5h28.48c6.549,0,12.536,3.7,15.465,9.558l11.721,23.442l15.036,11.434
+                           c5.105,3.149,8.213,8.718,8.213,14.716v16.83C256.208,195.081,253.289,198,249.688,198z" />
+                                </g>
+                                <g>
+                                    <path style="fill:#F86E51;" d="M181.5,198h-132V95.166c0-6.996,5.671-12.666,12.667-12.666h106.667
+                           c6.996,0,12.667,5.671,12.667,12.666V198H181.5z" />
+                                </g>
+                                <g>
+                                    <path style="fill:#DD523C;"
+                                        d="M181.5,95.167c0-6.996-5.671-12.667-12.667-12.667h-21.167V198H181.5V95.167z" />
+                                </g>
+                                <g>
+                                    <path style="fill:#D0D5D9;"
+                                        d="M212.597,126.195L224,149h-33v-27h14.81C208.684,122,211.312,123.624,212.597,126.195z" />
+                                </g>
+                                <g>
+                                    <circle style="fill:#32373B;" cx="89.291" cy="198" r="23.291" />
+                                </g>
+                                <g>
+                                    <circle style="fill:#484F54;" cx="89.291" cy="198" r="9" />
+                                </g>
+                                <g>
+                                    <circle style="fill:#32373B;" cx="221.291" cy="198" r="23.291" />
+                                </g>
+                                <g>
+                                    <circle style="fill:#484F54;" cx="221.292" cy="198" r="9" />
+                                </g>
+                            </g>
+                            <g>
+                            </g>
+                            <g>
+                            </g>
+                            <g>
+                            </g>
+                            <g>
+                            </g>
+                            <g>
+                            </g>
+                            <g>
+                            </g>
+                            <g>
+                            </g>
+                            <g>
+                            </g>
+                            <g>
+                            </g>
+                            <g>
+                            </g>
+                            <g>
+                            </g>
+                            <g>
+                            </g>
+                            <g>
+                            </g>
+                            <g>
+                            </g>
+                            <g>
+                            </g>
+                        </svg>
+
+                    </div>
+                    <div class="detail-box">
+                        <h5>
+                            Fast Delivery
+                        </h5>
+                        <p>
+                            variations of passages of Lorem
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="box ">
+                    <div class="img-box">
+                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"
+                            id="Capa_1" x="0px" y="0px" viewBox="0 0 455 455" style="enable-background:new 0 0 455 455;"
+                            xml:space="preserve" width="512" height="512">
+                            <g>
+                                <path style="fill:#FF6E1D;"
+                                    d="M227.5,0C101.86,0,0,101.86,0,227.5S101.86,455,227.5,455S455,353.14,455,227.5S353.14,0,227.5,0z" />
+                                <path style="fill:#FFFFFF;"
+                                    d="M213.36,241.64c3.62,3.62,8.62,5.86,14.14,5.86c10.6,0,19.3-8.29,19.95-18.73l98.49-98.5   l-21.21-21.21l-97.23,97.22l-65.41-65.4l-21.21,21.21l66.67,66.68C207.85,233.79,210.02,238.3,213.36,241.64z M227.5,30   C336.4,30,425,118.6,425,227.5S336.4,425,227.5,425S30,336.4,30,227.5S118.6,30,227.5,30z" />
+                                <path style="fill:#6DA8D6;"
+                                    d="M228.77,207.55l-1.27-1.27l-65.41-65.4l-21.21,21.21l66.67,66.68c-0.04-0.42-0.05-0.84-0.05-1.27   l20-20C227.93,207.5,228.35,207.51,228.77,207.55z" />
+                                <path style="fill:#98D9D5;"
+                                    d="M345.94,130.27l-21.21-21.21l-97.23,97.22l1.27,1.27l18.73,19.95c0,0.43-0.01,0.85-0.05,1.27   L345.94,130.27z" />
+                                <path style="fill:#185F8D;"
+                                    d="M220.927,223.467l-95.912,95.912c-2.929,2.929-2.929,7.678,0,10.606   c1.464,1.464,3.384,2.197,5.303,2.197s3.839-0.732,5.303-2.197l95.912-95.912L220.927,223.467z" />
+                                <path style="fill:#FFCC75;"
+                                    d="M227.5,247.5c11.028,0,20-8.972,20-20s-8.972-20-20-20c-11.028,0-20,8.972-20,20   S216.472,247.5,227.5,247.5z" />
+                                <path style="fill:#274B6D;"
+                                    d="M227.5,97.5c-4.142,0-7.5-3.358-7.5-7.5V60c0-4.142,3.358-7.5,7.5-7.5s7.5,3.358,7.5,7.5v30   C235,94.142,231.642,97.5,227.5,97.5z" />
+                                <path style="fill:#274B6D;"
+                                    d="M395,235h-30c-4.142,0-7.5-3.358-7.5-7.5s3.358-7.5,7.5-7.5h30c4.142,0,7.5,3.358,7.5,7.5   S399.142,235,395,235z" />
+                                <path style="fill:#274B6D;"
+                                    d="M227.5,402.5c-4.142,0-7.5-3.358-7.5-7.5v-30c0-4.142,3.358-7.5,7.5-7.5s7.5,3.358,7.5,7.5v30   C235,399.142,231.642,402.5,227.5,402.5z" />
+                                <path style="fill:#274B6D;"
+                                    d="M90,235H60c-4.142,0-7.5-3.358-7.5-7.5s3.358-7.5,7.5-7.5h30c4.142,0,7.5,3.358,7.5,7.5   S94.142,235,90,235z" />
+                            </g>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                        </svg>
+
+                    </div>
+                    <div class="detail-box">
+                        <h5>
+                            24/7 Support
+                        </h5>
+                        <p>
+                            All time customer support
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="box ">
+                    <div class="img-box">
+                        <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                            xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512"
+                            style="enable-background:new 0 0 512 512;" xml:space="preserve">
+                            <path style="fill:#FF6464;"
+                                d="M423.231,471.606l-77.852-226.499H166.621L88.769,471.606c-2.292,6.668,3.773,13.199,10.592,11.407
+                   l45.614-11.985l28.606,37.495c4.277,5.606,13.075,4.183,15.367-2.485L256,310.959l67.052,195.08
+                   c2.292,6.667,11.09,8.091,15.367,2.485l28.606-37.495l45.614,11.985C419.458,484.804,425.523,478.274,423.231,471.606z" />
+                            <path style="fill:#D2555A;" d="M374.645,330.253l-29.266-85.146H166.621l-29.266,85.146c27.811,21.5,61.586,35.651,98.451,39.46
+                   L256,310.959l20.194,58.753C313.059,365.903,346.834,351.752,374.645,330.253z" />
+                            <circle style="fill:#FFC36E;" cx="256" cy="176.552" r="176.552" />
+                            <path style="fill:#FFD782;" d="M256,0C158.493,0,79.448,79.044,79.448,176.552c0,97.506,79.044,176.552,176.552,176.552
+                   s176.552-79.046,176.552-176.552C432.552,79.044,353.507,0,256,0z M256,326.621c-82.881,0-150.069-67.188-150.069-150.069
+                   S173.119,26.483,256,26.483s150.069,67.188,150.069,150.069S338.881,326.621,256,326.621z" />
+                            <path style="fill:#EBB45F;" d="M256,26.483c-82.881,0-150.069,67.188-150.069,150.069S173.119,326.621,256,326.621
+                   s150.069-67.188,150.069-150.069S338.881,26.483,256,26.483z M256,308.966c-73.13,0-132.414-59.284-132.414-132.414
+                   S182.87,44.138,256,44.138s132.414,59.284,132.414,132.414S329.13,308.966,256,308.966z" />
+                            <path style="fill:#FFD782;"
+                                d="M256.605,231.962L213.07,254.85c-7.207,3.789-15.629-2.33-14.253-10.356l8.314-48.477l-35.221-34.332
+                   c-5.831-5.683-2.613-15.585,5.444-16.756l48.673-7.073l21.768-44.106c3.604-7.302,14.015-7.302,17.618,0l21.768,44.106l48.673,7.073
+                   c8.057,1.171,11.275,11.073,5.444,16.756l-35.221,34.332l8.314,48.477c1.376,8.025-7.047,14.144-14.253,10.356L256.605,231.962z" />
+                            <path style="fill:#EBB45F;" d="M256.605,88.276c3.503,0,7.007,1.825,8.809,5.476l21.768,44.106l48.673,7.073
+                   c8.057,1.171,11.275,11.073,5.444,16.756l-35.22,34.332l8.314,48.477c1.089,6.349-3.957,11.506-9.681,11.506
+                   c-1.511,0-3.069-0.359-4.573-1.15l-43.534-22.888l-43.534,22.888c-1.504,0.791-3.063,1.15-4.573,1.15
+                   c-5.725,0-10.77-5.156-9.681-11.506l8.314-48.477l-35.22-34.332c-5.831-5.683-2.613-15.585,5.444-16.756l48.673-7.073l21.768-44.106
+                   C249.597,90.101,253.101,88.276,256.605,88.276 M256.605,70.621c-10.536,0-19.978,5.869-24.641,15.318l-17.66,35.783l-39.488,5.738
+                   c-10.426,1.515-18.926,8.681-22.183,18.701c-3.256,10.02-0.591,20.814,6.954,28.169l28.574,27.852l-6.745,39.329
+                   c-1.374,8.008,0.828,16.143,6.037,22.324c5.262,6.242,12.934,9.822,21.045,9.822c4.412,0,8.834-1.099,12.789-3.178l35.319-18.569
+                   l35.319,18.569c3.955,2.079,8.377,3.178,12.789,3.178c8.111,0,15.782-3.581,21.045-9.823c5.209-6.179,7.411-14.316,6.037-22.323
+                   l-6.745-39.329l28.574-27.852c7.545-7.354,10.209-18.148,6.954-28.169c-3.256-10.02-11.756-17.186-22.183-18.701l-39.488-5.738
+                   l-17.66-35.783C276.583,76.49,267.14,70.621,256.605,70.621L256.605,70.621z" />
+                            <path style="fill:#FFE6A0;"
+                                d="M335.854,144.93l-48.673-7.073l-21.768-44.106c-3.604-7.302-14.015-7.302-17.618,0l-13.976,28.32
+                   l77.308,131.423c2.421-2.108,3.896-5.325,3.266-9l-8.314-48.477l35.22-34.332C347.128,156.002,343.912,146.101,335.854,144.93z" />
+                            <g>
+                                <path style="fill:#FFFFFF;"
+                                    d="M361.07,84.531c-15.236-3.474-27.231-15.468-30.705-30.706c-0.262-1.148-1.781-1.148-2.042,0
+                       c-3.474,15.236-15.468,27.231-30.705,30.706c-1.148,0.262-1.148,1.781,0,2.042c15.236,3.474,27.231,15.467,30.705,30.705
+                       c0.262,1.148,1.781,1.148,2.042,0c3.474-15.238,15.468-27.231,30.705-30.705C362.218,86.312,362.218,84.792,361.07,84.531z" />
+                                <path style="fill:#FFFFFF;"
+                                    d="M308.267,134.438c-9.274-2.402-16.577-9.705-18.979-18.979c-0.242-0.931-1.447-0.931-1.688,0
+                       c-2.402,9.274-9.705,16.577-18.979,18.979c-0.931,0.242-0.931,1.447,0,1.688c9.274,2.402,16.577,9.704,18.979,18.979
+                       c0.242,0.931,1.447,0.931,1.688,0c2.402-9.276,9.705-16.577,18.979-18.979C309.198,135.884,309.198,134.678,308.267,134.438z" />
+                            </g>
+                            <g>
+                            </g>
+                            <g>
+                            </g>
+                            <g>
+                            </g>
+                            <g>
+                            </g>
+                            <g>
+                            </g>
+                            <g>
+                            </g>
+                            <g>
+                            </g>
+                            <g>
+                            </g>
+                            <g>
+                            </g>
+                            <g>
+                            </g>
+                            <g>
+                            </g>
+                            <g>
+                            </g>
+                            <g>
+                            </g>
+                            <g>
+                            </g>
+                            <g>
+                            </g>
+                        </svg>
+                    </div>
+                    <div class="detail-box">
+                        <h5>
+                            Best Quality
+                        </h5>
+                        <p>
+                            variations of passages of Lorem
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- end why section -->

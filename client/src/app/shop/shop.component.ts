@@ -1,5 +1,6 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { IBrand } from '../shared/models/brand';
+import { IGender } from '../shared/models/gender';
 import { IProduct } from '../shared/models/product';
 import { IType } from '../shared/models/productType';
 import { ShopParams } from '../shared/models/shopParams';
@@ -15,6 +16,7 @@ export class ShopComponent implements OnInit {
   products: IProduct[];
   brands: IBrand[];
   types: IType[];
+  genders: IGender[];
   shopParams: ShopParams;
   totalCount: number;
   sortOptions = [
@@ -31,6 +33,7 @@ export class ShopComponent implements OnInit {
     this.getProducts(true);
     this.getBrands();
     this.getTypes();
+    this.getGenders();
   }
   
   getProducts(useCache = false) {
@@ -58,6 +61,14 @@ export class ShopComponent implements OnInit {
     })
   }
 
+  getGenders() {
+    this.shopService.getGenders().subscribe(response => {
+      this.genders = [{id: 0, name: 'All'}, ...response];
+    }, error => {
+      console.log(error);
+    })
+  }
+
   onBrandSelected(brandId: number) {
     const params = this.shopService.getShopParams();
     params.brandId = brandId;
@@ -69,6 +80,14 @@ export class ShopComponent implements OnInit {
   onTypeSelected(typeId: number) {
     const params = this.shopService.getShopParams();
     params.typeId = typeId;
+    params.pageNumber = 1;
+    this.shopService.setShopParams(params);
+    this.getProducts();
+  }
+
+  onGenderSelected(genderId: number) {
+    const params = this.shopService.getShopParams();
+    params.genderId = genderId;
     params.pageNumber = 1;
     this.shopService.setShopParams(params);
     this.getProducts();

@@ -1,7 +1,8 @@
 <div class="container mt-5">
     <div class="row" *ngIf="product">
         <div class="col-6">
-            <img src="{{product.pictureUrl}}" alt="{{product.name}}" class="img-fluid w-100">
+            <ngx-gallery [options]="galleryOptions" [images]="galleryImages" style="display: inline-block; margin-bottom: 20px"></ngx-gallery>
+            <!-- <img src="{{product.pictureUrl}}" alt="{{product.name}}" class="img-fluid w-100"> -->
         </div>
         <div class="col-6">
             <h3>{{product.name}}</h3>
@@ -11,6 +12,11 @@
                 <span class="fw-bold" style="font-size: 1.5em;">{{quantity}}</span>            
                 <i (click)="incrementQuantity()" class="fa fa-plus-circle text-primary mx-2" style="cursor: pointer; font-size: 2em;"></i>
                 <button (click)="addItemToBasket()" class="btn btn-outline-primary btn-lg ml-4">Add to Cart</button>
+            </div>
+            <div class="col-12 py-4">
+               
+                <h5>Gender:</h5>
+                <p>{{product.productGender}}</p>
             </div>
             <div class="col-12 py-4">
                

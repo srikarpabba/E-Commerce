@@ -3,7 +3,7 @@
         <p class="py-5">There are no items in your cart 😫</p>
     </div>
 
-    <div *ngIf="basket$ | async">
+    <div *ngIf="basket$ | async as basket">
         <div class="pb-5">
             <div class="container">
                 <div class="row">
@@ -12,17 +12,17 @@
                             (decrement)="decrementItemQuantity($event)"
                             (increment)="incrementItemQuantity($event)" 
                             (remove)="removeBasketItem($event)"
-                            [items]="(basket$ | async).items">
+                            [items]="basket.items">
                         </app-basket-summary>
                     </main>
                     <aside class="col-md-4">
                         <div class="card">
                             <div class="card-body">
                                 <app-order-totals
-                                   *ngIf="(basketTotals$ | async)"
-                                   [shippingPrice]="(basketTotals$ | async).shipping"
-                                   [subtotal]="(basketTotals$ | async).subtotal"
-                                   [total]="(basketTotals$ | async).total"
+                                   *ngIf="basketTotals$ | async as totals"
+                                   [shippingPrice]="totals.shipping"
+                                   [subtotal]="totals.subtotal"
+                                   [total]="totals.total"
                                  ></app-order-totals>
                                 <a routerLink="/checkout" class="btn btn-outline-primary py-2 d-md-block">
                                     Proceed to checkout

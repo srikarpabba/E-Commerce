@@ -1,38 +1,56 @@
 using System.Text.Json;
 using Core.Entities;
 using Core.Interfaces;
-using StackExchange.Redis;
+using Microsoft.EntityFrameworkCore;
 
 namespace Infrastructure.Data
 {
     public class BasketRepository : IBasketRepository
     {
-        private readonly IDatabase _database;
-        public BasketRepository(IConnectionMultiplexer redis)
+        private readonly StoreContext _context;
+        public BasketRepository(StoreContext context)
         {
-            _database = redis.GetDatabase();
+            _context = context;
         }
 
         public async Task<bool> DeleteBasketAsync(string basketId)
         {
-            return await _database.KeyDeleteAsync(basketId);
+            var basket = await _context.Set<Basket>().FindAsync(basketId);
+            if (basket == null) return false;
+            _context.Remove(basket);
+            await _context.SaveChangesAsync();
+            return true;
         }
-
         public async Task<CustomerBasket> GetBasketAsync(string basketId)
         {
-            var data = await _database.StringGetAsync(basketId);
-
-            return data.IsNullOrEmpty ? null : JsonSerializer.Deserialize<CustomerBasket>(data);
+            var basket = await _context.Baskets.FirstOrDefaultAsync(p => p.Id == basketId);
+            if (basket == null) return null;
+            return JsonSerializer.Deserialize<CustomerBasket>(basket.BasketData);
         }
 
         public async Task<CustomerBasket> UpdateBasketAsync(CustomerBasket basket)
         {
-            var created = await _database.StringSetAsync(basket.Id, JsonSerializer.Serialize(basket), 
-                TimeSpan.FromDays(30));
+            if (basket == null) return null;
 
-            if (!created) return null;
-
-            return await GetBasketAsync(basket.Id);
+            var data = JsonSerializer.Serialize(basket);
+            var existingBasket = await _context.Baskets.FirstOrDefaultAsync(p => p.Id == basket.Id);
+            if (existingBasket == null)
+            { // add new basket
+                var newItem = new Basket();
+                newItem.Id = basket.Id;
+                newItem.BasketData = data;
+                newItem.lastUpdated = DateTime.Now;
+                await _context.Baskets.AddAsync(newItem);
+                await _context.SaveChangesAsync();
+            }
+            else
+            { // update existing basket
+                existingBasket.BasketData = data;
+                existingBasket.lastUpdated = DateTime.Now;
+                _context.Baskets.Update(existingBasket);
+                await _context.SaveChangesAsync();
+            }
+            return basket;
         }
     }
 }
