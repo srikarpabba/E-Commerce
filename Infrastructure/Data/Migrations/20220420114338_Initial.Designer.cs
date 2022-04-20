@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Infrastructure.Data.Migrations
 {
     [DbContext(typeof(StoreContext))]
-    [Migration("20220418120905_PhotoEntityAdded")]
-    partial class PhotoEntityAdded
+    [Migration("20220420114338_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -170,6 +170,9 @@ namespace Infrastructure.Data.Migrations
                     b.Property<decimal>("Price")
                         .HasColumnType("decimal(18,2)");
 
+                    b.Property<int>("ProductAgeGroupId")
+                        .HasColumnType("int");
+
                     b.Property<int>("ProductBrandId")
                         .HasColumnType("int");
 
@@ -181,6 +184,8 @@ namespace Infrastructure.Data.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("ProductAgeGroupId");
+
                     b.HasIndex("ProductBrandId");
 
                     b.HasIndex("ProductGenderId");
@@ -188,6 +193,22 @@ namespace Infrastructure.Data.Migrations
                     b.HasIndex("ProductTypeId");
 
                     b.ToTable("Products");
+                });
+
+            modelBuilder.Entity("Core.Entities.ProductAgeGroup", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("ProductAgeGroups");
                 });
 
             modelBuilder.Entity("Core.Entities.ProductBrand", b =>
@@ -329,6 +350,12 @@ namespace Infrastructure.Data.Migrations
 
             modelBuilder.Entity("Core.Entities.Product", b =>
                 {
+                    b.HasOne("Core.Entities.ProductAgeGroup", "ProductAgeGroup")
+                        .WithMany()
+                        .HasForeignKey("ProductAgeGroupId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("Core.Entities.ProductBrand", "ProductBrand")
                         .WithMany()
                         .HasForeignKey("ProductBrandId")
@@ -346,6 +373,8 @@ namespace Infrastructure.Data.Migrations
                         .HasForeignKey("ProductTypeId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("ProductAgeGroup");
 
                     b.Navigation("ProductBrand");
 

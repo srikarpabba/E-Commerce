@@ -28,5 +28,8 @@ namespace API.Dtos
         public string Type { get; set; }
         [Required]
         public string Gender { get; set; }
+
+        [Required]
+        public string AgeGroup { get; set; }
     }
 }

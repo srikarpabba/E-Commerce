@@ -18,6 +18,7 @@ export interface IBasketItem {
     brand: string;
     type: string;
     gender: string;
+    ageGroup: string;
 }
 export class Basket implements IBasket {
     id = uuidv4();

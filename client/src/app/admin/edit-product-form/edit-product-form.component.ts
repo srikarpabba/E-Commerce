@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { IAgeGroup } from 'src/app/shared/models/ageGroup';
 import { IBrand } from '../../shared/models/brand';
 import { IGender } from '../../shared/models/gender';
 import { ProductFormValues } from '../../shared/models/product';
@@ -16,6 +17,7 @@ export class EditProductFormComponent implements OnInit {
   @Input() brands: IBrand[];
   @Input() types: IType[];
   @Input() genders: IGender[];
+  @Input() ageGroups: IAgeGroup[];
 
   constructor(
     private route: ActivatedRoute,

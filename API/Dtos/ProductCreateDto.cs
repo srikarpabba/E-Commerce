@@ -24,5 +24,7 @@ namespace API.Dtos
         public int ProductBrandId { get; set; }    
         [Required]
         public int ProductGenderId { get; set; }
+        [Required]
+        public int ProductAgeGroupId { get; set; }
     }
 }

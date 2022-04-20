@@ -48,7 +48,7 @@
     </div>
 
     <div class="row py-2">
-        <div class="col-md-4">
+        <div class="col-md-3">
             <label for="brand">Brand</label>
             <select #brand="ngModel" name="productBrandId" id="brand" class="form-select"
                 [(ngModel)]="product.productBrandId" required
@@ -59,7 +59,7 @@
                 </option>
             </select>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-3">
             <label for="type">Type</label>
             <select #type="ngModel" name="productTypeId" id="type" class="form-select"
                 [(ngModel)]="product.productTypeId" required
@@ -69,7 +69,7 @@
                 </option>
             </select>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-3">
             <label for="gender">Gender</label>
             <select #gender="ngModel" name="productGenderId" id="gender" class="form-select"
                 [(ngModel)]="product.productGenderId" required
@@ -77,6 +77,17 @@
                 <option *ngFor="let gender of genders" [selected]="product.productTypeId === gender.id"
                     [ngValue]="gender.id">
                     {{gender.name}}
+                </option>
+            </select>
+        </div>
+        <div class="col-md-3">
+            <label for="ageGroup">AgeGroup</label>
+            <select #ageGroup="ngModel" name="productAgeGroupId" id="ageGroup" class="form-select"
+                [(ngModel)]="product.productAgeGroupId" required
+                [ngClass]="{'is-invalid': ageGroup.invalid && (ageGroup.touched || ageGroup.dirty)}">
+                <option *ngFor="let ageGroup of ageGroups" [selected]="product.productAgeGroupId === ageGroup.id"
+                    [ngValue]="ageGroup.id">
+                    {{ageGroup.name}}
                 </option>
             </select>
         </div>

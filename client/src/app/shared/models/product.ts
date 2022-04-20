@@ -7,6 +7,7 @@ export interface IProduct {
   productType: string;
   productBrand: string;
   productGender: string;
+  productAgeGroup: string;
   photos: IPhoto[];
 }
 
@@ -25,6 +26,7 @@ export interface IProductToCreate {
   productTypeId: number;
   productBrandId: number;
   productGenderId: number;
+  productAgeGroupId: number;
 }
 
 export class ProductFormValues implements IProductToCreate {
@@ -35,6 +37,7 @@ export class ProductFormValues implements IProductToCreate {
   productTypeId: number;
   productBrandId: number;
   productGenderId: number;
+  productAgeGroupId: number;
 
   constructor(init?: ProductFormValues) {
     Object.assign(this, init);

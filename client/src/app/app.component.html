@@ -1,9 +1,10 @@
 <ngx-spinner type="ball-atom">
     <h3>Loading...</h3>
 </ngx-spinner>
-<app-nav-bar></app-nav-bar>
-<app-section-header></app-section-header>
+<app-nav-bar *ngIf="showHead"></app-nav-bar>
+<app-section-header *ngIf="showHead"></app-section-header>
 
 <div>
     <router-outlet></router-outlet>
 </div>
+<app-footer *ngIf="showHead"></app-footer>

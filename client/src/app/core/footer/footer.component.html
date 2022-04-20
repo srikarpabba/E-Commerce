@@ -1,0 +1,63 @@
+ <!-- footer start -->
+ <footer>
+    <div class="container">
+       <div class="row">
+          <div class="col-md-4">
+              <div class="full">
+                 <div class="logo_footer">
+                   <a routerLink="/"><img style="max-height: 70px;" src="assets\images\logo.png" alt="#" /></a>
+                 </div>
+                 <div class="information_f">
+                   <p><strong>ADDRESS:</strong> xyz road, Hyd</p>
+                   <p><strong>TELEPHONE:</strong> +91 123 456 7890</p>
+                   <p><strong>EMAIL:</strong> xyz@gmail.com</p>
+                 </div>
+              </div>
+          </div>
+          <div class="col-md-8">
+             <div class="row">
+             <div class="col-md-7">
+                <div class="row">
+                   <div class="col-md-6">
+                <div class="widget_menu">
+                   <h3>Menu</h3>
+                   <ul>
+                      <li><a routerLink="/">Home</a></li>
+                      
+                      <li><a routerLink="/shop">Shop</a></li>
+                      <li><a href="#">Contact</a></li>
+                   </ul>
+                </div>
+             </div>
+             <div class="col-md-6">
+                <div class="widget_menu">
+                   <h3>Account</h3>
+                   <ul>
+                    <ng-container *ngIf="(currentUser$ | async) === null">
+                        <li><a routerLink="/account/login">Login</a></li>
+                        <li><a routerLink="/account/register">Register</a></li>
+                    </ng-container>
+
+                      
+                      <ng-container *ngIf="(currentUser$ | async) as user">
+                        <li><a routerLink="/orders">Orders</a></li>
+                        <li><a routerLink="/basket">Cart</a></li>
+                        <li><a (click)="logout()">logout</a></li>
+                      </ng-container>
+                     
+                      
+                   </ul>
+                </div>
+             </div>
+                </div>
+             </div>     
+             
+             </div>
+          </div>
+       </div>
+    </div>
+ </footer>
+ <!-- footer end -->
+ <div class="cpy_">
+    <p>© 2022 All Rights Reserved By <a href="https://myfasho.com/">MyFasho</a></p>
+ </div>

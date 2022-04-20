@@ -23,6 +23,7 @@ namespace Infrastructure.Data
                 .Include(p => p.ProductType)
                 .Include(p => p.ProductBrand)
                 .Include(p => p.ProductGender)
+                .Include(p => p.ProductAgeGroup)
                 .FirstOrDefaultAsync(x => x.Id == id);
         }
 
@@ -32,6 +33,7 @@ namespace Infrastructure.Data
                 .Include(p => p.ProductType)
                 .Include(p => p.ProductBrand)
                 .Include(p => p.ProductGender)
+                .Include(p => p.ProductAgeGroup)
                 .ToListAsync();
         }
 
@@ -42,6 +44,11 @@ namespace Infrastructure.Data
         public async Task<IReadOnlyList<ProductGender>> GetProductgendersAsync()
         {
             return await _context.ProductGenders.ToListAsync();
+        }
+
+        public async Task<IReadOnlyList<ProductAgeGroup>> GetProductagegroupsAsync()
+        {
+            return await _context.ProductAgeGroups.ToListAsync();
         }
 
         

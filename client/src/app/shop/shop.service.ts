@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { of } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
+import { IAgeGroup } from '../shared/models/ageGroup';
 import { IBrand } from '../shared/models/brand';
 import { IGender } from '../shared/models/gender';
 import { IPagination, Pagination } from '../shared/models/pagination';
@@ -19,6 +20,7 @@ export class ShopService {
   brands: IBrand[] = [];
   types: IType[] = [];
   genders: IGender[] = [];
+  ageGroups: IAgeGroup[] = [];
   pagination = new Pagination();
   shopParams = new ShopParams();
   productCache = new Map();
@@ -49,6 +51,10 @@ export class ShopService {
 
     if (this.shopParams.genderId !== 0) {
       params = params.append('genderId', this.shopParams.genderId.toString())
+    }
+
+    if (this.shopParams.ageGroupId !== 0) {
+      params = params.append('ageGroupId', this.shopParams.ageGroupId.toString())
     }
 
     if (this.shopParams.search) {
@@ -122,6 +128,18 @@ export class ShopService {
     return this.http.get<IGender[]>(this.baseUrl + 'products/genders').pipe(
       map(response => {
         this.genders = response;
+        return response;
+      })
+    )
+  }
+
+  getAgeGroups() {
+    if (this.ageGroups.length > 0) {
+      return of(this.ageGroups);
+    }
+    return this.http.get<IAgeGroup[]>(this.baseUrl + 'products/agegroups').pipe(
+      map(response => {
+        this.ageGroups = response;
         return response;
       })
     )

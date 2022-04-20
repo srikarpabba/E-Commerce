@@ -2,7 +2,7 @@
     <div class="row">
 
         <section class="col-3">
-            <ng-container *ngIf="types && brands && genders">
+            <ng-container *ngIf="types && brands && genders && ageGroups">
             <h5 class="text-primary ml-3 mt-3 mb-3">
                 Sort
             </h5>
@@ -15,6 +15,17 @@
 
             </select>
             <h5 class="text-primary ml-3">
+                Age Group
+            </h5>
+            <ul class="list-group my-3">
+                <li class="list-group-item" *ngFor="let ageGroup of ageGroups"
+                    [class.active]="ageGroup.id ===this.shopParams.ageGroupId" [value]="ageGroup.id"
+                    (click)="onAgeGroupSelected(ageGroup.id)">
+                    {{ageGroup.name}}
+                </li>
+
+            </ul>
+            <h5 class="text-primary ml-3">
                 Genders
             </h5>
             <ul class="list-group my-3">
@@ -22,17 +33,6 @@
                     [class.active]="gender.id ===this.shopParams.genderId" [value]="gender.id"
                     (click)="onGenderSelected(gender.id)">
                     {{gender.name}}
-                </li>
-
-            </ul>
-            <h5 class="text-primary ml-3">
-                Brands
-            </h5>
-            <ul class="list-group my-3">
-                <li class="list-group-item" *ngFor="let brand of brands"
-                    [class.active]="brand.id ===this.shopParams.brandId" [value]="brand.id"
-                    (click)="onBrandSelected(brand.id)">
-                    {{brand.name}}
                 </li>
 
             </ul>
@@ -47,6 +47,18 @@
                 </li>
 
             </ul>
+            <h5 class="text-primary ml-3">
+                Brands
+            </h5>
+            <ul class="list-group my-3">
+                <li class="list-group-item" *ngFor="let brand of brands"
+                    [class.active]="brand.id ===this.shopParams.brandId" [value]="brand.id"
+                    (click)="onBrandSelected(brand.id)">
+                    {{brand.name}}
+                </li>
+
+            </ul>
+            
         </ng-container>
         </section>
 

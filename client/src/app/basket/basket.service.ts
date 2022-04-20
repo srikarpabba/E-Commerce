@@ -178,6 +178,8 @@ export class BasketService {
       brand: item.productBrand,
       type: item.productType,
       gender: item.productGender,
+      ageGroup: item.productAgeGroup,
+
     };
   }
 }

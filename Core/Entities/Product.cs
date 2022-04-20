@@ -12,6 +12,8 @@ namespace Core.Entities
 
         public ProductGender ProductGender { get; set; }
         public int ProductGenderId { get; set; }
+        public ProductAgeGroup ProductAgeGroup { get; set; }
+        public int ProductAgeGroupId { get; set; }
         private readonly List<Photo> _photos = new List<Photo>();
         public IReadOnlyList<Photo> Photos => _photos.AsReadOnly();
 

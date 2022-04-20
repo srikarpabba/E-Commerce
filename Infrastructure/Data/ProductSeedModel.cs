@@ -9,5 +9,6 @@ namespace Infrastructure.Data
         public int ProductTypeId { get; set; }
         public int ProductBrandId { get; set; } 
         public int ProductGenderId { get; set; }   
+        public int ProductAgeGroupId { get; set; }
     }
 }

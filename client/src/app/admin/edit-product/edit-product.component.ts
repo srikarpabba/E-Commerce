@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { forkJoin } from 'rxjs';
+import { IAgeGroup } from 'src/app/shared/models/ageGroup';
 import { IBrand } from '../../shared/models/brand';
 import { IGender } from '../../shared/models/gender';
 import { IProduct, ProductFormValues } from '../../shared/models/product';
@@ -19,6 +20,7 @@ export class EditProductComponent implements OnInit {
   brands: IBrand[];
   types: IType[];
   genders: IGender[];
+  ageGroups: IAgeGroup[];
 
   constructor(
     private adminService: AdminService,
@@ -33,12 +35,14 @@ export class EditProductComponent implements OnInit {
     const brands = this.getBrands();
     const types = this.getTypes();
     const genders = this.getGenders();
+    const ageGroups = this.getAgeGroups();
 
-    forkJoin([types, brands, genders]).subscribe(
+    forkJoin([types, brands, genders, ageGroups]).subscribe(
       (results) => {
         this.types = results[0];
         this.brands = results[1];
         this.genders = results[2];
+        this.ageGroups = results[3];
       },
       (error) => {
         console.log(error);
@@ -64,12 +68,16 @@ export class EditProductComponent implements OnInit {
         const productGenderId =
           this.genders &&
           this.genders.find((x) => x.name === response.productGender).id;
+          const productAgeGroupId =
+          this.ageGroups &&
+          this.ageGroups.find((x) => x.name === response.productAgeGroup).id;
         this.product = response;
         this.productFormValues = {
           ...response,
           productBrandId,
           productTypeId,
           productGenderId,
+          productAgeGroupId
         };
       });
   }
@@ -84,5 +92,8 @@ export class EditProductComponent implements OnInit {
 
   getGenders() {
     return this.shopService.getGenders();
+  }
+  getAgeGroups() {
+    return this.shopService.getAgeGroups();
   }
 }

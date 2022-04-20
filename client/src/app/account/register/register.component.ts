@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AsyncValidatorFn, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, AsyncValidatorFn, FormBuilder, FormGroup, ValidationErrors, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { of, timer } from 'rxjs';
 import { map, switchMap } from 'rxjs/operators';
@@ -29,11 +29,25 @@ export class RegisterComponent implements OnInit {
         [this.validateEmailNotTaken()]
       ],
       phoneNumber:  [null, [Validators.required, Validators.pattern('^((\\+91-?)|0)?[0-9]{10}$')]],
-      password: [null, Validators.required]
+      password: [null, Validators.required],
+      confirmPassword: [
+        '',
+        [Validators.required, this.matchValues('password')],
+      ],
     });
   }
 
-  onSubmit() {
+  matchValues(matchTo: string): (AbstractControl) => ValidationErrors | null {
+    return (control: AbstractControl): ValidationErrors | null => {
+      return !!control.parent &&
+        !!control.parent.value &&
+        control.value === control.parent.controls[matchTo].value
+        ? null
+        : { isMatching: true };
+    };
+  }
+
+  onSubmit() {    
     this.accountService.register(this.registerForm.value).subscribe(response => {
       this.router.navigateByUrl('/shop');
     }, error => {

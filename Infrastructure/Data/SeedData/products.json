@@ -6,7 +6,8 @@
     "PictureUrl": "images/products/casualshirt.webp",
     "ProductTypeId": 1,
     "ProductBrandId": 1,
-    "ProductGenderId": 1
+    "ProductGenderId": 1,
+    "ProductAgeGroupId": 1
   },
   {
     "Name": "Relaxed Fit Checked Shirt",
@@ -15,7 +16,8 @@
     "PictureUrl": "images/products/checkedshirt.webp",
     "ProductTypeId": 1,
     "ProductBrandId": 2,
-    "ProductGenderId": 1
+    "ProductGenderId": 1,
+    "ProductAgeGroupId": 2
   },
   {
     "Name": "Tapered Fit Stretchable Jeans",
@@ -24,7 +26,8 @@
     "PictureUrl": "images/products/stretchablejeans.jpg",
     "ProductTypeId": 2,
     "ProductBrandId": 1,
-    "ProductGenderId": 1
+    "ProductGenderId": 1,
+    "ProductAgeGroupId": 3
   },
   {
     "Name": "Mid-Rise Clean Look Stretchable Jeans",
@@ -33,7 +36,8 @@
     "PictureUrl": "images/products/lookstretchablejeans.webp",
     "ProductTypeId": 2,
     "ProductBrandId": 2,
-    "ProductGenderId": 1
+    "ProductGenderId": 1,
+    "ProductAgeGroupId": 4
   },
   {
     "Name": "Downshifter 10 Running Shoes",
@@ -42,7 +46,8 @@
     "PictureUrl": "images/products/downshiftershoes.webp",
     "ProductTypeId": 3,
     "ProductBrandId": 7,
-    "ProductGenderId": 1
+    "ProductGenderId": 1,
+    "ProductAgeGroupId": 1
   },
   {
     "Name": "White Trainers",
@@ -51,7 +56,8 @@
     "PictureUrl": "images/products/whitetrainers.webp",
     "ProductTypeId": 3,
     "ProductBrandId": 5,
-    "ProductGenderId": 1
+    "ProductGenderId": 1,
+    "ProductAgeGroupId": 1
   },
   {
     "Name": "Black & Pink Floral Printed Wrap Dress",
@@ -60,7 +66,8 @@
     "PictureUrl": "images/products/wrapdress.webp",
     "ProductTypeId": 5,
     "ProductBrandId": 9,
-    "ProductGenderId": 2
+    "ProductGenderId": 2,
+    "ProductAgeGroupId": 1
   },
   {
     "Name": "Women Turquoise Blue Motifs Printed Panelled Cotton Kurta with Churidar & Dupatta",
@@ -69,7 +76,8 @@
     "PictureUrl": "images/products/dupatta.png",
     "ProductTypeId": 5,
     "ProductBrandId": 8,
-    "ProductGenderId": 2
+    "ProductGenderId": 2,
+    "ProductAgeGroupId": 1
   },
   {
     "Name": "Women Navy Blue & Off-White Printed Kurta with Palazzos & Dupatta",
@@ -78,7 +86,8 @@
     "PictureUrl": "images/products/palazzos.webp",
     "ProductTypeId": 5,
     "ProductBrandId": 8,
-    "ProductGenderId": 2
+    "ProductGenderId": 2,
+    "ProductAgeGroupId": 1
   },
   {
     "Name": "Women Black Skinny Fit Mid-Rise Clean Look Stretchable Cropped Jeans",
@@ -87,7 +96,8 @@
     "PictureUrl": "images/products/blackpant.webp",
     "ProductTypeId": 2,
     "ProductBrandId": 5,
-    "ProductGenderId": 2
+    "ProductGenderId": 2,
+    "ProductAgeGroupId": 1
   },
   {
     "Name": "Women Blue Pure Cotton Jogger High-Rise Non-Stretchable Clean Look Jeans",
@@ -96,7 +106,8 @@
     "PictureUrl": "images/products/cottonpant.jpg",
     "ProductTypeId": 2,
     "ProductBrandId": 9,
-    "ProductGenderId": 2
+    "ProductGenderId": 2,
+    "ProductAgeGroupId": 1
   },
   {
     "Name": "White Solid Cotton Jersey T-shirt",
@@ -105,7 +116,8 @@
     "PictureUrl": "images/products/whitetshirt.webp",
     "ProductTypeId": 4,
     "ProductBrandId": 5,
-    "ProductGenderId": 2
+    "ProductGenderId": 2,
+    "ProductAgeGroupId": 1
   },
   {
     "Name": "Women Multicoloured Colourblocked Drop-Shoulder Sleeves T-shirt",
@@ -114,7 +126,8 @@
     "PictureUrl": "images/products/multicolored.jpg",
     "ProductTypeId": 4,
     "ProductBrandId": 1,
-    "ProductGenderId": 2
+    "ProductGenderId": 2,
+    "ProductAgeGroupId": 1
   },
   {
     "Name": "Woman Blue Printed T-shirt",
@@ -123,7 +136,8 @@
     "PictureUrl": "images/products/bluetshirt.jpg",
     "ProductTypeId": 4,
     "ProductBrandId": 5,
-    "ProductGenderId": 2
+    "ProductGenderId": 2,
+    "ProductAgeGroupId": 1
   },
   {
     "Name": "Women Black & Teal Blue Solid City Rep Training Or Gym Shoes",
@@ -132,7 +146,8 @@
     "PictureUrl": "images/products/gymshoes.webp",
     "ProductTypeId": 3,
     "ProductBrandId": 7,
-    "ProductGenderId": 2
+    "ProductGenderId": 2,
+    "ProductAgeGroupId": 1
   },
   {
     "Name": "Women Beige Solid Trainers",
@@ -141,7 +156,8 @@
     "PictureUrl": "images/products/trainershoes.webp",
     "ProductTypeId": 3,
     "ProductBrandId": 5,
-    "ProductGenderId": 2
+    "ProductGenderId": 2,
+    "ProductAgeGroupId": 1
   },
   {
     "Name": "Women Black Solid Sandals",
@@ -150,7 +166,8 @@
     "PictureUrl": "images/products/blacksandals.webp",
     "ProductTypeId": 3,
     "ProductBrandId": 10,
-    "ProductGenderId": 2
+    "ProductGenderId": 2,
+    "ProductAgeGroupId": 1
   },
   {
     "Name": "Men Brown VENTURE RUNNER Suede Sneakers",
@@ -159,6 +176,7 @@
     "PictureUrl": "images/products/suedesneakers.webp",
     "ProductTypeId": 3,
     "ProductBrandId": 7,
-    "ProductGenderId": 1
+    "ProductGenderId": 1,
+    "ProductAgeGroupId": 1
   }
 ]

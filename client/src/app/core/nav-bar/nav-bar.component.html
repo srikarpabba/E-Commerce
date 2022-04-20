@@ -36,9 +36,10 @@ px-md-4 bg-white border-bottom shadow-sm">
 </div>
 
 <nav class="d-flex flex-column flex-md-row align-items-center justify-content-center text-uppercase bg-primary p-3 px-md-4 shadow-sm sticky-top" style="font-size: large;z-index: 50;">
-    <a class="p-2 desktop-navLink" [routerLink]="['/']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">home</a>
+    <a class="p-2 desktop-navLink" [routerLink]="['/']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">home</a>  
     <a class="p-2 desktop-navLink" routerLink="/shop" routerLinkActive="active">shop</a>
-    <a class="p-2 desktop-navLink" routerLink="/test-error" routerLinkActive="active">Errors</a>
+    <a class="p-2 desktop-navLink" routerLink="/contact" routerLinkActive="active">contact</a>
+    <a *ngIf="(isAdmin$ | async)" class="p-2 desktop-navLink" routerLink="/test-error" routerLinkActive="active">Errors</a>
     <a *ngIf="(isAdmin$ | async)" class="p-2 desktop-navLink" routerLink="/admin" routerLinkActive="active">Admin</a>
 </nav>
 

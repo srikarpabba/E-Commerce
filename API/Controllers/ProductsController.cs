@@ -29,7 +29,7 @@ namespace API.Controllers
         {
             var spec = new ProductsWithTypesAndBrandsSpecification(productParams);
             
-            var countSpec = new ProductsWithFiltersForCountSpecification(productParams);
+            var countSpec = new ProductWithFiltersForCountSpecificication(productParams);
 
             var totalItems = await _unitOfWork.Repository<Product>().CountAsync(countSpec);
 
@@ -75,6 +75,13 @@ namespace API.Controllers
         public async Task<ActionResult<IReadOnlyList<ProductGender>>> GetProductGenders()
         {
             return Ok(await _unitOfWork.Repository<ProductGender>().ListAllAsync());
+        }
+
+         // [Cached(600)]
+        [HttpGet("agegroups")]
+        public async Task<ActionResult<IReadOnlyList<ProductAgeGroup>>> GetProductAgeGroups()
+        {
+            return Ok(await _unitOfWork.Repository<ProductAgeGroup>().ListAllAsync());
         }
 
         [HttpPost]

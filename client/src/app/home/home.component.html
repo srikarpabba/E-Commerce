@@ -26,8 +26,9 @@
         <div class="row justify-content-center">
             <div class="col-lg-8">
                 <div class="heading_container heading_center">
-                    <h2>New arrivals</h2>
-                    <p>The best Online sales to shop these weekend</p>
+                    <h2>
+                        New <span>arrivals</span>
+                     </h2>
                 </div>
             </div>
         </div>
@@ -35,8 +36,21 @@
             <div class="col-lg-3 col-12 col-md-6 col-sm-6 mb-5" *ngFor="let item of girls">
                 <div class="product">
                     <div class="product-wrap">
-                        <img src="{{item.pictureUrl}}" alt="{{item.name}}" class="img-fluid bg-light"
-                            style="width: min-content;">
+                        <img src="{{item.pictureUrl}}" alt="{{item.name}}"  class="product-list" 
+                            >
+                    </div>
+                    <div class="py-3">
+                        <h4 class="product-title h5 mb-0"><a routerLink="/shop/{{item.id}}">
+                                {{item.name}}
+                            </a></h4>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-12 col-md-6 col-sm-6 mb-5" *ngFor="let item of boys">
+                <div class="product">
+                    <div class="product-wrap">
+                        <img src="{{item.pictureUrl}}" alt="{{item.name}}" class="product-list"
+                            >
                     </div>
                     <div class="py-3">
                         <h4 class="product-title h5 mb-0"><a routerLink="/shop/{{item.id}}">
@@ -48,6 +62,9 @@
         </div>
     </div>
 </section>
+
+
+
 
 <!-- arrival section -->
 <section class="arrival_section">
@@ -330,3 +347,4 @@
     </div>
 </section>
 <!-- end why section -->
+

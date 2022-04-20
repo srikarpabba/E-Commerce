@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NavigationStart, Router } from '@angular/router';
 import { AccountService } from './account/account.service';
 import { BasketService } from './basket/basket.service';
 
@@ -9,11 +10,26 @@ import { BasketService } from './basket/basket.service';
 })
 export class AppComponent implements OnInit {
   title = 'MyFasho';
+  showHead: boolean = false;
 
   constructor(
     private basketService: BasketService,
-    private accountService: AccountService
-  ) {}
+    private accountService: AccountService,
+    private router: Router
+  ) {
+    // on route change to '/login', set the variable showHead to false
+    router.events.forEach((event) => {
+      if (event instanceof NavigationStart) {
+        if (event['url'] == '/not-found') {
+          this.showHead = false;
+        } else {
+          // console.log("NU")
+          this.showHead = true;
+        }
+      }
+    });
+
+  }
 
   ngOnInit(): void {
     this.loadBasket();

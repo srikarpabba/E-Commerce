@@ -18,7 +18,10 @@ namespace Infrastructure.Data.Config
             builder.HasOne(p => p.ProductType).WithMany()
                 .HasForeignKey(p => p.ProductTypeId);
             builder.HasOne(p => p.ProductGender).WithMany()
-                .HasForeignKey(p => p.ProductGenderId);    
+                .HasForeignKey(p => p.ProductGenderId);
+            builder.HasOne(p => p.ProductAgeGroup).WithMany()
+                .HasForeignKey(p => p.ProductAgeGroupId);     
+                    
         }
     }
 }

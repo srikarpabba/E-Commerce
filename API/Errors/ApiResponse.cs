@@ -1,5 +1,3 @@
-using System;
-
 namespace API.Errors
 {
     public class ApiResponse
@@ -21,7 +19,7 @@ namespace API.Errors
                 401 => "Authorized, you are not",
                 403 => "Forbidden from doing this, you are",
                 404 => "Resource found, it was not",
-                500 => "Errors are the path to the dark side.  Errors lead to anger.   Anger leads to hate.  Hate leads to career change.",
+                500 => "Errors are the path to the dark side. Errors lead to anger.  Anger leads to hate.  Hate leads to career change",
                 _ => null
             };
         }

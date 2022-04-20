@@ -27,7 +27,8 @@ namespace Infrastructure.Services
             foreach (var item in basket.Items)
             {
                 var productItem = await _unitOfWork.Repository<Product>().GetByIdAsync(item.Id);
-                var itemOrdered = new ProductItemOrdered(productItem.Id, productItem.Name, productItem.Photos.FirstOrDefault(x => x.IsMain)?.PictureUrl);
+                var itemOrdered = new ProductItemOrdered(productItem.Id, productItem.Name,
+                    productItem.Photos.FirstOrDefault(x => x.IsMain)?.PictureUrl);
                 var orderItem = new OrderItem(itemOrdered, productItem.Price, item.Quantity);
                 items.Add(orderItem);
             }
@@ -42,16 +43,19 @@ namespace Infrastructure.Services
             var spec = new OrderByPaymentIntentWithItemsSpecification(basket.PaymentIntentId);
             var existingOrder = await _unitOfWork.Repository<Order>().GetEntityWithSpec(spec);
 
-
-            // create order
-            var order = new Order(items, buyerEmail, shippingAddress, deliveryMethod, subtotal, basket.PaymentIntentId);
-            _unitOfWork.Repository<Order>().Add(order);
-
             if (existingOrder != null)
             {
                 _unitOfWork.Repository<Order>().Delete(existingOrder);
                 await _paymentService.CreateOrUpdatePaymentIntent(basket.Id);
             }
+
+
+            // create order
+            var order = new Order(items, buyerEmail, shippingAddress, deliveryMethod, subtotal, basket.PaymentIntentId);
+            
+            _unitOfWork.Repository<Order>().Add(order);
+
+            
 
             // save to db
             var result = await _unitOfWork.Complete();

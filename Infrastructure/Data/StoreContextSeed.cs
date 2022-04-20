@@ -55,6 +55,19 @@ namespace Infrastructure.Data
                     await context.SaveChangesAsync();
                 }
 
+                if (!context.ProductAgeGroups.Any())
+                {
+                    var ageGroupsData = File.ReadAllText("../Infrastructure/Data/SeedData/agegroup.json");
+                    var ageGroup = JsonSerializer.Deserialize<List<ProductAgeGroup>>(ageGroupsData);
+
+                    foreach (var item in ageGroup)
+                    {
+                        context.ProductAgeGroups.Add(item);
+                    }
+
+                    await context.SaveChangesAsync();
+                }
+
                 if (!context.Products.Any())
                 {
                     var productsData = File.ReadAllText("../Infrastructure/Data/SeedData/products.json");
@@ -71,7 +84,8 @@ namespace Infrastructure.Data
                             Price = item.Price,
                             ProductBrandId = item.ProductBrandId,
                             ProductTypeId = item.ProductTypeId,
-                            ProductGenderId = item.ProductGenderId
+                            ProductGenderId = item.ProductGenderId,
+                            ProductAgeGroupId = item.ProductAgeGroupId
                         };
                         product.AddPhoto(item.PictureUrl, pictureFileName);
                         context.Products.Add(product);

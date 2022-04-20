@@ -10,6 +10,7 @@ import { HomeService } from './home.service';
 })
 export class HomeComponent implements OnInit {
   girls: any = [];
+  boys: any = [];
 
   constructor(
     private homeService: HomeService,
@@ -18,12 +19,24 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     this.getClothes();
+    this.getBoy();
   }
 
   getClothes() {
     this.homeService.getClothes().subscribe(
       (response) => {
         this.girls = response.data;
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  }
+
+  getBoy() {
+    this.homeService.getBoy().subscribe(
+      (response) => {
+        this.boys = response.data;
       },
       (error) => {
         console.log(error);

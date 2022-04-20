@@ -20,6 +20,7 @@ namespace Infrastructure.Data
         public DbSet<DeliveryMethod> DeliveryMethods { get; set; }
         public DbSet<Basket> Baskets { get; set; }
         public DbSet<ProductGender> ProductGenders { get; set; }
+        public DbSet<ProductAgeGroup> ProductAgeGroups { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
