@@ -10,6 +10,7 @@ import { SectionHeaderComponent } from './section-header/section-header.componen
 import { BreadcrumbModule } from 'xng-breadcrumb';
 import { SharedModule } from '../shared/shared.module';
 import { FooterComponent } from './footer/footer.component';
+import { ShopModule } from '../shop/shop.module';
 
 
 
@@ -20,6 +21,7 @@ import { FooterComponent } from './footer/footer.component';
     RouterModule,
     BreadcrumbModule,
     SharedModule,
+    ShopModule,
     ToastrModule.forRoot({
       positionClass: 'toast-bottom-right',
       preventDuplicates: true

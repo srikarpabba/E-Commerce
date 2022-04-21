@@ -5,6 +5,7 @@ import { ProductDetailsComponent } from './product-details/product-details.compo
 import { ProductItemComponent } from './product-item/product-item.component';
 import { ShopRoutingModule } from './shop-routing.module';
 import { ShopComponent } from './shop.component';
+import { ProductBoysComponent } from './product-boys/product-boys.component';
 
 
 
@@ -13,7 +14,8 @@ import { ShopComponent } from './shop.component';
   declarations: [
     ShopComponent,
     ProductItemComponent,
-    ProductDetailsComponent
+    ProductDetailsComponent,
+    ProductBoysComponent
    
   ],
   imports: [

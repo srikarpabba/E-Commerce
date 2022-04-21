@@ -12,13 +12,18 @@ export class OrdersListComponent implements OnInit {
 
   constructor(private ordersService: OrdersService) {}
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.getOrders();
   }
 
-  getOrders(): void {
-    this.ordersService
-      .getOrdersForUser()
-      .subscribe((response: IOrder[]) => (this.orders = response));
+  getOrders() {
+    this.ordersService.getOrdersForUser().subscribe(
+      (orders: IOrder[]) => {
+        this.orders = orders;
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
   }
 }
