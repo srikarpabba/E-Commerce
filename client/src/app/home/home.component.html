@@ -36,12 +36,12 @@
             <div class="col-lg-3 col-12 col-md-6 col-sm-6 mb-5" *ngFor="let item of girls">
                 <div class="product">
                     <div class="product-wrap">
-                        <img src="{{item.pictureUrl}}" alt="{{item.name}}"  class="product-list" 
+                        <img src="{{item.pictureUrl}}" alt="{{item.name}}"  class="product-list" routerLink="/shop/{{item.id}}" style="cursor: pointer;"
                             >
                     </div>
                     <div class="py-3">
                         <h4 class="product-title h5 mb-0"><a routerLink="/shop/{{item.id}}">
-                                {{item.name}}
+                                {{item.name | slice: 0:30}}...
                             </a></h4>
                     </div>
                 </div>
@@ -49,12 +49,12 @@
             <div class="col-lg-3 col-12 col-md-6 col-sm-6 mb-5" *ngFor="let item of boys">
                 <div class="product">
                     <div class="product-wrap">
-                        <img src="{{item.pictureUrl}}" alt="{{item.name}}" class="product-list"
+                        <img src="{{item.pictureUrl}}" alt="{{item.name}}" class="product-list" routerLink="/shop/{{item.id}}" style="cursor: pointer;"
                             >
                     </div>
                     <div class="py-3">
                         <h4 class="product-title h5 mb-0"><a routerLink="/shop/{{item.id}}">
-                                {{item.name}}
+                                {{item.name | slice: 0:30}}
                             </a></h4>
                     </div>
                 </div>

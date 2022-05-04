@@ -21,8 +21,8 @@ namespace Core.Entities
         {
             var photo = new Photo
             {
-                FileName = fileName,
-                PictureUrl = pictureUrl
+                PictureUrl = pictureUrl,
+                FileName = fileName
             };
             
             if (_photos.Count == 0) photo.IsMain = true;
@@ -38,6 +38,7 @@ namespace Core.Entities
         public void SetMainPhoto(int id)
         {
             var currentMain = _photos.SingleOrDefault(item => item.IsMain);
+            
             foreach (var item in _photos.Where(item => item.IsMain))
             {
                 item.IsMain = false;

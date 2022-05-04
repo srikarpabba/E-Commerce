@@ -1,6 +1,5 @@
 using API.Dtos;
 using API.Errors;
-using API.Extensions;
 using AutoMapper;
 using Core.Entities.OrderAggregate;
 using Core.Interfaces;

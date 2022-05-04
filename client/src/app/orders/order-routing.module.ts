@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-import { OrderDetailsComponent } from './order-details/order-details.component';
-import { OrdersListComponent } from './orders-list/orders-list.component';
+import { RouterModule, Routes } from '@angular/router';
+import { OrderDetailedComponent } from './order-detailed/order-detailed.component';
+import { OrdersComponent } from './orders.component';
 
 const routes: Routes = [
-  {path: '', component: OrdersListComponent},
-  {path: ':id', component: OrderDetailsComponent, data: {breadcrumb: {alias: 'OrderDetails'}}}
+  {path: '', component: OrdersComponent},
+  {path: ':id', component: OrderDetailedComponent, data: {breadcrumb: {alias: 'OrderDetailed'}}}
 ];
 
 @NgModule({

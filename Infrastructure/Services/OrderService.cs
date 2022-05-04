@@ -23,10 +23,11 @@ namespace Infrastructure.Services
             var basket = await _basketRepo.GetBasketAsync(basketId);
 
             // get items from the product repo
-             var items = new List<OrderItem>();
+            var items = new List<OrderItem>();
             foreach (var item in basket.Items)
             {
-                var productItem = await _unitOfWork.Repository<Product>().GetByIdAsync(item.Id);
+                var prodSpec = new ProductIdSpecification(item.Id);
+                var productItem = await _unitOfWork.Repository<Product>().GetEntityWithSpec(prodSpec);                
                 var itemOrdered = new ProductItemOrdered(productItem.Id, productItem.Name,
                     productItem.Photos.FirstOrDefault(x => x.IsMain)?.PictureUrl);
                 var orderItem = new OrderItem(itemOrdered, productItem.Price, item.Quantity);
@@ -46,6 +47,7 @@ namespace Infrastructure.Services
             if (existingOrder != null)
             {
                 _unitOfWork.Repository<Order>().Delete(existingOrder);
+                //update payment intent
                 await _paymentService.CreateOrUpdatePaymentIntent(basket.Id);
             }
 
