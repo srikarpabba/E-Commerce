@@ -30,8 +30,8 @@ namespace Infrastructure.Identity
                     new AppUser
                     {
                         DisplayName = "Admin",
-                        Email = "admin@myfasho.com",
-                        UserName = "admin@myfasho.com",
+                        Email = "admin@ecommerce.com",
+                        UserName = "admin@ecommerce.com",
                         PhoneNumber = "1234567890"
                     }
                 };
@@ -51,7 +51,7 @@ namespace Infrastructure.Identity
                 {
                     await userManager.CreateAsync(user, "Pa$$w0rd");
                     await userManager.AddToRoleAsync(user, "Member");
-                    if (user.Email == "admin@myfasho.com") await userManager.AddToRoleAsync(user, "Admin");
+                    if (user.Email == "admin@ecommerce.com") await userManager.AddToRoleAsync(user, "Admin");
                 }
 
 

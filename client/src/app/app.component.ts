@@ -9,7 +9,7 @@ import { BasketService } from './basket/basket.service';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
-  title = 'MyFasho';
+  title = 'E-Commerce';
   showHead: boolean = false;
 
   constructor(
