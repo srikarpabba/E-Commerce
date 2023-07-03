@@ -1,2 +1,2 @@
 # E-Commerce
-This project is developed with Angular CLI version 13.2.5 and RestAPI using .net core 7
+This project is developed with Angular CLI version 16.1.3 and RestAPI using .net core 7
