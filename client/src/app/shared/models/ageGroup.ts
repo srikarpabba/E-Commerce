@@ -1,4 +1,4 @@
-export interface IAgeGroup {
+export interface AgeGroup {
     id: number;
     name: string;
 }

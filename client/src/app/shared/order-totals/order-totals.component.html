@@ -1,20 +1,20 @@
-<div class="bg-primary px-4 text-uppercase fw-bold text-light" style="padding: 1.20em;">
+<div class="bg-primary px-4 py-3 text-uppercase fw-bold text-light" style="padding: 1.20em;">
     Order Summary
 </div>
 <div class="p-4">
-    <p class="font-italic mb-4">Shipping costs will be added depending on choices made during checkout</p>
-    <ul class="list-unstyled mb-4">
+    <p class="fst-italic mb-4">Shipping costs will be added depending on choices made during checkout</p>
+    <ul class="list-unstyled mb-4"  *ngIf="(basketService.basketTotalSource$ | async) as totals">
         <li class="d-flex justify-content-between py-3 border-bottom">
             <strong class="text-muted">Order subtotal</strong>
-            <strong>{{subtotal | currency:'INR'}}</strong>
+            <strong>{{totals.subtotal | currency:'INR'}}</strong>
         </li>
         <li class="d-flex justify-content-between py-3 border-bottom">
             <strong class="text-muted">Shipping and handling</strong>
-            <strong>{{shippingPrice | currency:'INR'}}</strong>
+            <strong>{{totals.shipping  | currency:'INR'}}</strong>
         </li>
         <li class="d-flex justify-content-between py-3 border-bottom">
             <strong class="text-muted">Total</strong>
-            <strong>{{total | currency:'INR'}}</strong>
+            <strong>{{totals.total | currency:'INR'}}</strong>
         </li>
     </ul>
 </div>

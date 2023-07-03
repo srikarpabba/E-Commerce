@@ -1,10 +1,10 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { IAgeGroup } from 'src/app/shared/models/ageGroup';
-import { IBrand } from '../../shared/models/brand';
-import { IGender } from '../../shared/models/gender';
+import { AgeGroup } from 'src/app/shared/models/ageGroup';
+import { Brand } from '../../shared/models/brand';
+import { Gender } from '../../shared/models/gender';
 import { ProductFormValues } from '../../shared/models/product';
-import { IType } from '../../shared/models/productType';
+import { Type } from '../../shared/models/productType';
 import { AdminService } from '../admin.service';
 
 @Component({
@@ -14,10 +14,10 @@ import { AdminService } from '../admin.service';
 })
 export class EditProductFormComponent implements OnInit {
   @Input() product: ProductFormValues;
-  @Input() brands: IBrand[];
-  @Input() types: IType[];
-  @Input() genders: IGender[];
-  @Input() ageGroups: IAgeGroup[];
+  @Input() brands: Brand[];
+  @Input() types: Type[];
+  @Input() genders: Gender[];
+  @Input() ageGroups: AgeGroup[];
 
   constructor(
     private route: ActivatedRoute,

@@ -1,34 +1,18 @@
 using StackExchange.Redis;
 using Core.Entities.Identity;
+using Microsoft.AspNetCore.Mvc;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // add services to the container
 
 builder.Services.AddAutoMapper(typeof(MappingProfiles));
-builder.Services.AddControllers();
-builder.Services.AddDbContext<StoreContext>(x =>
-    x.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
-builder.Services.AddDbContext<AppIdentityDbContext>(x =>
-{
-    x.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
-});    
-
-builder.Services.AddSingleton<IConnectionMultiplexer>(c =>
-{
-    var configuration = ConfigurationOptions.Parse(builder.Configuration.GetConnectionString("Redis"), true);
-    return ConnectionMultiplexer.Connect(configuration);
-});
-builder.Services.AddApplicationServices();
+builder.Services.AddControllers(options => options.Filters.Add(new ProducesAttribute("application/json")));
+builder.Services.AddApplicationServices(builder.Configuration);
 builder.Services.AddIdentityServices(builder.Configuration);
 builder.Services.AddSwaggerDocumentation();
-builder.Services.AddCors(opt =>
-{
-    opt.AddPolicy("CorsPolicy", policy =>
-    {
-        policy.AllowAnyHeader().AllowAnyMethod().WithOrigins("https://localhost:4200");
-    });
-});
+
+builder.Services.AddHttpClient();
 
 // configure the http request pipeline
 

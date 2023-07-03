@@ -1,9 +1,9 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { IAgeGroup } from '../shared/models/ageGroup';
-import { IBrand } from '../shared/models/brand';
-import { IGender } from '../shared/models/gender';
-import { IProduct } from '../shared/models/product';
-import { IType } from '../shared/models/productType';
+import { AgeGroup } from '../shared/models/ageGroup';
+import { Brand } from '../shared/models/brand';
+import { Gender } from '../shared/models/gender';
+import { Product } from '../shared/models/product';
+import { Type } from '../shared/models/productType';
 import { ShopParams } from '../shared/models/shopParams';
 import { ShopService } from './shop.service';
 
@@ -14,11 +14,11 @@ import { ShopService } from './shop.service';
 })
 export class ShopComponent implements OnInit {
   @ViewChild('search', {static: false}) searchTerm: ElementRef;
-  products: IProduct[];
-  brands: IBrand[];
-  types: IType[];
-  genders: IGender[];
-  ageGroups: IAgeGroup[];
+  products: Product[];
+  brands: Brand[];
+  types: Type[];
+  genders: Gender[];
+  ageGroups: AgeGroup[];
   shopParams: ShopParams;
   totalCount: number;
   sortOptions = [

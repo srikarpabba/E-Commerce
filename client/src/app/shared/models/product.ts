@@ -1,4 +1,4 @@
-export interface IProduct {
+export interface Product {
   id: number;
   name: string;
   description: string;
@@ -8,17 +8,19 @@ export interface IProduct {
   productBrand: string;
   productGender: string;
   productAgeGroup: string;
-  photos: IPhoto[];
+  photos: Photo[];
 }
 
-export interface IPhoto {
+export class Product implements Product {}
+
+export interface Photo {
   id: number;
   pictureUrl: string;
   fileName: string;
   isMain: boolean;
 }
 
-export interface IProductToCreate {
+export interface ProductToCreate {
   name: string;
   description: string;
   price: number;
@@ -29,7 +31,7 @@ export interface IProductToCreate {
   productAgeGroupId: number;
 }
 
-export class ProductFormValues implements IProductToCreate {
+export class ProductFormValues implements ProductToCreate {
   name: '';
   description: '';
   price: 0;

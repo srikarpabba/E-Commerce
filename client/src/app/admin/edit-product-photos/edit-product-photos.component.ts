@@ -1,7 +1,7 @@
 import { HttpEvent, HttpEventType } from '@angular/common/http';
 import { Component, Input, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
-import { IProduct } from 'src/app/shared/models/product';
+import { Product } from 'src/app/shared/models/product';
 import { AdminService } from '../admin.service';
 
 @Component({
@@ -10,7 +10,7 @@ import { AdminService } from '../admin.service';
   styleUrls: ['./edit-product-photos.component.scss']
 })
 export class EditProductPhotosComponent implements OnInit {
-  @Input() product: IProduct;
+  @Input() product: Product;
   addPhotoMode = false;
   progress = 0;
 
@@ -59,7 +59,7 @@ export class EditProductPhotosComponent implements OnInit {
   }
 
   setMainPhoto(photoId: number): void {
-    this.adminService.setMainPhoto(photoId, this.product.id).subscribe((product: IProduct) => {
+    this.adminService.setMainPhoto(photoId, this.product.id).subscribe((product: Product) => {
       this.product = product;
     });
   }

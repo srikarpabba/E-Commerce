@@ -1,4 +1,4 @@
-<div class="mt-4" [formGroup]="checkoutForm">
+<div class="mt-4" *ngIf="checkoutForm" [formGroup]="checkoutForm">
     <h4 class="mb-3">Choose your delivery method</h4>
     <div class="row" formGroupName="deliveryForm">
         <div class="col-6 mb-3" *ngFor="let method of deliveryMethods">
@@ -9,7 +9,7 @@
                 formControlName="deliveryMethod"
                 class="form-check-input"
             >
-            <label for="{{method.id}}" class="form-check-label ms-2">
+            <label for="{{method.id}}" class="form-check-label ms-2 mb-3">
                 <strong>{{method.shortName}} - {{method.price | currency:'INR'}}</strong>
                 <br />
                 <span class="label-description">{{method.description}}</span>

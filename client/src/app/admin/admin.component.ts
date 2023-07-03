@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { IProduct } from '../shared/models/product';
+import { Product } from '../shared/models/product';
 import { ShopParams } from '../shared/models/shopParams';
 import { ShopService } from '../shop/shop.service';
 import { AdminService } from './admin.service';
@@ -10,7 +10,7 @@ import { AdminService } from './admin.service';
   styleUrls: ['./admin.component.scss'],
 })
 export class AdminComponent implements OnInit {
-  products: IProduct[];
+  products: Product[];
   totalCount: number;
   shopParams: ShopParams;
 

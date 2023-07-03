@@ -1,0 +1,65 @@
+<div class="table-responsive" *ngIf="(basketService.basketSource$ | async) as basket">
+    <table class="table">
+        <thead [class.bg-light]="isBasket" class="border-0 py-2 text-uppercase">
+            <tr>
+                <th>
+                    <div class="py-2">Product</div>
+                </th>
+                <th>
+                    <div class="py-2">Price</div>
+                </th>
+                <th [class.text-center]="!isBasket">
+                    <div class="py-2">Quantity</div>
+                </th>
+                <th>
+                    <div class="py-2">Total</div>
+                </th>
+                <th *ngIf="isBasket">
+                    <div class="py-2">Remove</div>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of basket.items">
+                <th scope="row">
+                    <figure class="itemside">
+                        <div class="aside"><img src="{{item.pictureUrl}}" alt="{{item.productName}}" class="img-fluid"
+                                style="max-height: 100px;"></div>
+                        <figcaption class="info">
+                            <a routerLink="/shop/{{item.id}}"
+                                class="text-dark text-decoration-none">{{item.productName}}</a>
+                            <span *ngIf="item.type" class="text-muted fw-normal d-block"
+                                style="font-style: italic;">Type:
+                                {{item.type}}</span>
+                            <span *ngIf="item.brand" class="text-muted fw-normal d-block"
+                                style="font-style: italic;">Brand:
+                                {{item.brand}}</span>
+                        </figcaption>
+                    </figure>
+                </th>
+                <td class="align-middle"><strong>{{item.price | currency:'INR'}}</strong></td>
+                <td class="align-middle">
+                    <div class="d-flex align-items-center" [class.justify-content-center]="!isBasket">
+                        <i *ngIf="isBasket" (click)="removeBasketItem(item.id, 1)"
+                            class="fa fa-minus-circle text-primary me-2" style="cursor: pointer; font-size: 2em;"></i>
+                        <span class="fw-bold" style="font-size: 1.5em;">{{item.quantity}}</span>
+                        <i *ngIf="isBasket" (click)="addBasketItem(item)" class="fa fa-plus-circle text-primary mx-2"
+                            style="cursor: pointer; font-size: 2em;"></i>
+                    </div>
+
+                </td>
+                <td class="align-middle">
+                    <strong>
+                        {{item.price * item.quantity | currency:'INR'}}
+                    </strong>
+                </td>
+                <td class="align-middle text-center">
+                    <a class="text-primary">
+                        <i *ngIf="isBasket" (click)="removeBasketItem(item.id, item.quantity)" class="fa fa-trash"
+                            style="cursor: pointer; font-size: 2em;"></i>
+                    </a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

@@ -1,7 +1,6 @@
-using System.Text;
 using Core.Entities.Identity;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.IdentityModel.Tokens;
+using Microsoft.Extensions.Options;
+using StackExchange.Redis;
 
 namespace API.Extensions
 {
@@ -10,15 +9,42 @@ namespace API.Extensions
         public static IServiceCollection AddIdentityServices(this IServiceCollection services,
             IConfiguration config)
         {
-            var builder = services.AddIdentityCore<AppUser>();
+            services.AddDbContext<StoreContext>(x =>
+            {
+                x.UseSqlServer(config.GetConnectionString("DefaultConnection"));
+            });
+            services.AddDbContext<AppIdentityDbContext>(x =>
+            {
+                x.UseSqlServer(config.GetConnectionString("DefaultConnection"));
+            });
 
-            builder = new IdentityBuilder(builder.UserType, typeof(AppRole), builder.Services);
-            builder.AddEntityFrameworkStores<AppIdentityDbContext>();
-            builder.AddSignInManager<SignInManager<AppUser>>();
-            builder.AddRoleValidator<RoleValidator<AppRole>>();
-            builder.AddRoleManager<RoleManager<AppRole>>();
+            services.AddSingleton<IConnectionMultiplexer>(c =>
+            {
+                var configuration = ConfigurationOptions.Parse(config.GetConnectionString("Redis"), true);
+                return ConnectionMultiplexer.Connect(configuration);
+            });
 
-            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+            services.AddIdentity<AppUser, AppRole>(x =>
+            {
+                x.SignIn.RequireConfirmedEmail = true;
+                x.Tokens.EmailConfirmationTokenProvider = "emailconfirmation";
+                x.Lockout.AllowedForNewUsers = true;
+                x.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(2);
+                x.Lockout.MaxFailedAccessAttempts = 3;
+            })
+            .AddEntityFrameworkStores<AppIdentityDbContext>()
+            .AddSignInManager<SignInManager<AppUser>>()
+            .AddRoleValidator<RoleValidator<AppRole>>()
+            .AddRoleManager<RoleManager<AppRole>>()
+            .AddDefaultTokenProviders();
+
+
+            services.AddAuthentication(options =>
+                {
+                    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+                    options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
+                })
                 .AddJwtBearer(options =>
                 {
                     options.TokenValidationParameters = new TokenValidationParameters
@@ -26,10 +52,15 @@ namespace API.Extensions
                         ValidateIssuerSigningKey = true,
                         IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(config["Token:Key"])),
                         ValidIssuer = config["Token:Issuer"],
+                        ValidAudience = config["Token:Audience"],
                         ValidateIssuer = true,
-                        ValidateAudience = false
+                        ValidateAudience = false,
+                        ValidateLifetime = true,
                     };
                 });
+            services.AddHttpClient();
+
+            services.AddAuthorization();
 
             return services;
         }

@@ -1,36 +1,40 @@
 <div class="container mt-5">
     <div class="row" *ngIf="product">
         <div class="col-6">
-            <ngx-gallery [options]="galleryOptions" [images]="galleryImages" style="display: inline-block; margin-bottom: 20px"></ngx-gallery>
+            <ngx-gallery [options]="galleryOptions" [images]="galleryImages"
+                style="display: inline-block; margin-bottom: 20px"></ngx-gallery>
             <!-- <img src="{{product.pictureUrl}}" alt="{{product.name}}" class="img-fluid w-100"> -->
         </div>
-        <div class="col-6">
+        <div class="col-6 mt-5">
             <h6>{{product.productBrand}}</h6>
             <h3>{{product.name}}</h3>
             <p style="font-size: 2em;">{{product.price | currency:'INR'}}</p>
+            <h5 class="text-primary mb-3" *ngIf="quantityInBasket > 0">
+                You have {{quantityInBasket}} of this item in your basket
+            </h5>
             <div class="d-flex justify-content-start align-items-center">
-                <i (click)="decrementQuantity()" class="fa fa-minus-circle text-primary me-2" style="cursor: pointer; font-size: 2em;"></i>
-                <span class="fw-bold" style="font-size: 1.5em;">{{quantity}}</span>            
-                <i (click)="incrementQuantity()" class="fa fa-plus-circle text-primary mx-2" style="cursor: pointer; font-size: 2em;"></i>
-                <button (click)="addItemToBasket()" class="btn btn-outline-primary btn-lg ml-4">Add to Cart</button>
+                <i (click)="decrementQuantity()" class="fa fa-minus-circle text-primary me-2"
+                    style="cursor: pointer; font-size: 2em;"></i>
+                <span class="fw-bold" style="font-size: 1.5em;">{{quantity}}</span>
+                <i (click)="incrementQuantity()" class="fa fa-plus-circle text-primary mx-2"
+                    style="cursor: pointer; font-size: 2em;"></i>
+                <button (click)="updateBasket()" class="btn btn-outline-primary ms-4"
+                    [disabled]="quantity === quantityInBasket">{{buttonText}}</button>
             </div>
             <div class="row py-4">
-               <div class="col-6">
-                <h5>Gender:</h5>
-                <p>{{product.productGender}}</p>
-               </div>
+                <div class="col-6">
+                    <h5>Gender:</h5>
+                    <p>{{product.productGender}}</p>
+                </div>
                 <div class="col-6">
                     <h5>Age:</h5>
-                <p>{{product.productAgeGroup}}</p>
+                    <p>{{product.productAgeGroup}}</p>
                 </div>
             </div>
             <div class="col-12 py-4">
-               
                 <h4>Description:</h4>
                 <p>{{product.description}}</p>
             </div>
         </div>
-       
     </div>
 </div>
-

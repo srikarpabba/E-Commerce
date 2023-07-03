@@ -9,15 +9,11 @@
 
 
     <div class="card-body d-flex flex-column">
-        <a routerLink="/shop/{{product.id}}">
+        <a routerLink="/shop/{{product.id}}" class="text-decoration-none">
             <h6 class="text-uppercase">{{product.name | slice: 0:27}}...</h6>
         </a>
         <span class="mb-2">{{product.price | currency:'INR'}}</span>
         <!-- <i class="fa fa-heart-o float-right"></i> -->
-
-
-
-
     </div>
 </div>
 

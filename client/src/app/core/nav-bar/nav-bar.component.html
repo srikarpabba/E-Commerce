@@ -1,48 +1,49 @@
 <div class="d-flex flex-column flex-md-row align-items-center justify-content-around p-2 
 px-md-4 bg-white border-bottom shadow-sm">
-    <img src="assets\images\logo.png" style="max-height: 70px;" alt="logo" class="logo" routerLink="/">
-    
-    <div class="d-flex align-items-center">
-        <a routerLink="/basket" class="position-relative">
-            <i class="fa fa-shopping-cart fa-2x me-5 text-dark"></i>
-            <div *ngIf="(basket$ | async) as basket" class="cart-no">{{basket.items.length}}</div>
-        </a>
-        <ng-container *ngIf="(currentUser$ | async) === null"> 
-            <a routerLink="/account/login" class="btn btn-primary me-2">Login</a>
-            <a routerLink="/account/register" class="btn btn-primary me-2">Sign up</a>
-        </ng-container>
-        <ng-container *ngIf="(currentUser$ | async) as user">
-            <div class="dropdown ml-3 mr-5" dropdown>
-              <a class="dropdown-toggle text-dark" style="cursor: pointer;" dropdownToggle>
-                <strong>Welcome {{(currentUser$ | async).displayName}}</strong>
-              </a>
-              <div class="dropdown-menu dropdown-menu-right" style="cursor:pointer" *dropdownMenu>
-                <a routerLink="/basket" class="dropdown-item d-flex align-items-center py-2 text-dark">
-                  <i class="fa fa-shopping-cart me-3"></i> View Cart
-                </a>
-                <a routerLink="/orders" class="dropdown-item d-flex align-items-center py-2 text-dark">
-                  <i class="fa fa-history me-3"></i> View Orders
-                </a>
-                <div class="dropdown-divider"></div>
-                <a (click)="logout()" class="dropdown-item d-flex align-items-center py-2 text-dark">
-                  <i class="fa fa-sign-out me-3"></i> Logout
-                </a>
-              </div>
-            </div>
-          </ng-container>
+  <img src="assets\images\logo.png" style="max-height: 70px;" alt="logo" class="logo" routerLink="/">
 
-        
-    </div>
+  <div class="d-flex align-items-center">
+    <a routerLink="/basket" class="position-relative">
+      <i class="fa fa-shopping-cart fa-2x me-5 text-dark"></i>
+      <div *ngIf="(basketService.basketSource$ | async) as basket" class="cart-no">{{getCount(basket.items)}}</div>
+    </a>
+    <ng-container *ngIf="(accountService.currentUser$ | async) === null">
+      <a routerLink="/account/login" class="btn btn-primary me-2">Login</a>
+      <a routerLink="/account/register" class="btn btn-primary me-2">Sign up</a>
+    </ng-container>
+    <ng-container *ngIf="(accountService.currentUser$ | async) as user">
+      <div class="dropdown ms-3 me-5" dropdown>
+        <a class="dropdown-toggle text-dark" style="cursor: pointer;" dropdownToggle>
+          <strong>Welcome {{user.displayName}}</strong>
+        </a>
+        <div class="dropdown-menu dropdown-menu-right" style="cursor:pointer" *dropdownMenu>
+          <a routerLink="/basket" class="dropdown-item d-flex align-items-center py-2 text-dark">
+            <i class="fa fa-shopping-cart me-3"></i> View Cart
+          </a>
+          <a routerLink="/orders" class="dropdown-item d-flex align-items-center py-2 text-dark">
+            <i class="fa fa-history me-3"></i> View Orders
+          </a>
+          <div class="dropdown-divider"></div>
+          <a (click)="logout()" class="dropdown-item d-flex align-items-center py-2 text-dark">
+            <i class="fa fa-sign-out me-3"></i> Logout
+          </a>
+        </div>
+      </div>
+    </ng-container>
+  </div>
 </div>
 
-<nav class="d-flex flex-column flex-md-row align-items-center justify-content-center text-uppercase bg-primary p-3 px-md-4 shadow-sm sticky-top" style="font-size: large;z-index: 50;">
-    <a class="p-2 desktop-navLink" [routerLink]="['/']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">home</a>  
-    <div> <a class="p-2 desktop-navLink" routerLink="/shop" routerLinkActive="active">shop</a>
-     
-    </div>
-    <a class="p-2 desktop-navLink" routerLink="/contactus" routerLinkActive="active">contact</a>
-    <a *ngIf="(isAdmin$ | async)" class="p-2 desktop-navLink" routerLink="/test-error" routerLinkActive="active">Errors</a>
-    <a *ngIf="(isAdmin$ | async)" class="p-2 desktop-navLink" routerLink="/admin" routerLinkActive="active">Admin</a>
+<nav
+  class="d-flex flex-column flex-md-row align-items-center justify-content-center text-uppercase bg-primary p-3 px-md-4 shadow-sm sticky-top"
+  style="font-size: large;z-index: 50;">
+  <a class="p-2 desktop-navLink" [routerLink]="['/']" routerLinkActive="active"
+    [routerLinkActiveOptions]="{exact: true}">home</a>
+  <div> <a class="p-2 desktop-navLink" routerLink="/shop" routerLinkActive="active">shop</a>
+
+  </div>
+  <a class="p-2 desktop-navLink" routerLink="/contactus" routerLinkActive="active">contact</a>
+  <a *ngIf="(accountService.isAdmin$ | async)" class="p-2 desktop-navLink" routerLink="/test-error"
+    routerLinkActive="active">Errors</a>
+  <a *ngIf="(accountService.isAdmin$ | async)" class="p-2 desktop-navLink" routerLink="/admin"
+    routerLinkActive="active">Admin</a>
 </nav>
-
-

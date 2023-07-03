@@ -1,9 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Component } from '@angular/core';
 import { AccountService } from 'src/app/account/account.service';
 import { BasketService } from 'src/app/basket/basket.service';
-import { IBasket } from 'src/app/shared/models/basket';
-import { IUser } from 'src/app/shared/models/user';
+import { BasketItem } from 'src/app/shared/models/basket';
 
 @Component({
   selector: 'app-nav-bar',
@@ -11,17 +9,12 @@ import { IUser } from 'src/app/shared/models/user';
   styleUrls: ['./nav-bar.component.scss'],
 })
 
-export class NavBarComponent implements OnInit {
-  basket$: Observable<IBasket>;
-  currentUser$: Observable<IUser>;
-  isAdmin$: Observable<boolean>;
+export class NavBarComponent {
 
-  constructor(private basketService: BasketService, private accountService: AccountService) { }
+  constructor(public basketService: BasketService, public accountService: AccountService) { }
 
-  ngOnInit() {
-    this.basket$ = this.basketService.basket$;
-    this.currentUser$ = this.accountService.currentUser$;
-    this.isAdmin$ = this.accountService.isAdmin$;
+  getCount(items: BasketItem[]) {
+    return items.reduce((sum, item) => sum + item.quantity, 0);
   }
 
   logout() {

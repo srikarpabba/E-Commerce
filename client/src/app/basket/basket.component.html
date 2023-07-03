@@ -1,37 +1,30 @@
 <div class="container mt-2">
-    <div *ngIf="(basket$ | async) === null" class="d-flex justify-content-center">
+    <div *ngIf="(basketService.basketSource$ | async) === null" class="d-flex justify-content-center">
         <p class="py-5">There are no items in your cart 😫</p>
     </div>
 
-    <div *ngIf="basket$ | async as basket">
+    <ng-container *ngIf="(basketService.basketSource$ | async) as basket">
         <div class="pb-5">
             <div class="container">
                 <div class="row">
                     <main class="col-md-8">
-                        <app-basket-summary 
-                            (decrement)="decrementItemQuantity($event)"
-                            (increment)="incrementItemQuantity($event)" 
-                            (remove)="removeBasketItem($event)"
-                            [items]="basket.items">
-                        </app-basket-summary>
+                        <app-basket-summary (addItem)="incrementQuantity($event)"
+                            (removeItem)="removeItem($event)"></app-basket-summary>
                     </main>
                     <aside class="col-md-4">
                         <div class="card">
                             <div class="card-body">
-                                <app-order-totals
-                                   *ngIf="basketTotals$ | async as totals"
-                                   [shippingPrice]="totals.shipping"
-                                   [subtotal]="totals.subtotal"
-                                   [total]="totals.total"
-                                 ></app-order-totals>
-                                <a routerLink="/checkout" class="btn btn-outline-primary py-2 d-md-block">
-                                    Proceed to checkout
-                                </a>
+                                <app-order-totals></app-order-totals>
+                                <div class="d-grid">
+                                    <a routerLink="/checkout" class="btn btn-outline-primary py-2">
+                                        Proceed to checkout
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </aside>
                 </div>
             </div>
         </div>
-    </div>
+    </ng-container>
 </div>

@@ -3,7 +3,7 @@
 
         <section class="col-3">
             <ng-container *ngIf="types && brands && genders && ageGroups">
-            <h5 class="text-primary ml-3 mt-3 mb-3">
+            <h5 class="text-primary ms-3 mt-3 mb-3">
                 Sort
             </h5>
             <select class="form-select mb-4" (change)="onSortSelected($event.target.value)">
@@ -14,7 +14,7 @@
                 </option>
 
             </select>
-            <h5 class="text-primary ml-3">
+            <h5 class="text-primary ms-3">
                 Age Group
             </h5>
             <ul class="list-group my-3">
@@ -25,7 +25,7 @@
                 </li>
 
             </ul>
-            <h5 class="text-primary ml-3">
+            <h5 class="text-primary ms-3">
                 Genders
             </h5>
             <ul class="list-group my-3">
@@ -36,7 +36,7 @@
                 </li>
 
             </ul>
-            <h5 class="text-primary ml-3">
+            <h5 class="text-primary ms-3">
                 Types
             </h5>
             <ul class="list-group my-3">
@@ -47,7 +47,7 @@
                 </li>
 
             </ul>
-            <h5 class="text-primary ml-3">
+            <h5 class="text-primary ms-3">
                 Brands
             </h5>
             <ul class="list-group my-3">
@@ -71,8 +71,8 @@
                 <div class="d-flex" *ngIf="products">
                     <input (keyup.enter)="onSearch()" class="form-control me-2 my-2" #search style="width: 300px;" type="search" placeholder="Search"
                         aria-label="Search">
-                    <button (click)="onSearch()" class="btn btn-outline-primary me-2 my-2" type="submit">Search</button>
-                    <button (click)="onReset()" class="btn btn-outline-success me-2 my-2">Reset</button>
+                    <button (click)="onSearch()" class="btn btn-outline-primary me-2 mx-2" type="submit">Search</button>
+                    <button (click)="onReset()" class="btn btn-outline-success me-2 mx-2">Reset</button>
                 </div>
 
 

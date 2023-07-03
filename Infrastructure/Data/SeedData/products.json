@@ -3,7 +3,7 @@
     "Name": "White Slim Fit Casual Shirt",
     "Description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas porttitor congue massa. Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo magna eros quis urna.",
     "Price": 1000,
-    "PictureUrl": "images/products/casualshirt.webp",
+    "PictureUrl": "images/products/casualshirt.png",
     "ProductTypeId": 1,
     "ProductBrandId": 1,
     "ProductGenderId": 1,

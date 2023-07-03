@@ -1,22 +1,25 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <ItemGroup>
-    <ProjectReference Include="..\Core\Core.csproj" />
-  </ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\Core\Core.csproj" />
+	</ItemGroup>
 
-  <ItemGroup>
-         <PackageReference Include="Microsoft.AspNetCore.Identity" Version="2.2.0" />
-         <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="7.0.8" />
-         <PackageReference Include="Microsoft.IdentityModel.Tokens" Version="6.31.0" />
-         <PackageReference Include="StackExchange.Redis" Version="2.6.116" />
-         <PackageReference Include="Stripe.net" Version="39.105.0" />
-         <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.31.0" />
-  </ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="7.0.8" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="7.0.8" />
+		<PackageReference Include="Microsoft.IdentityModel.Tokens" Version="6.31.0" />
+		<PackageReference Include="StackExchange.Redis" Version="2.6.116" />
+		<PackageReference Include="Stripe.net" Version="41.22.0" />
+		<PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.31.0" />
+	</ItemGroup>
 
-  <PropertyGroup>
-    <TargetFramework>net7.0</TargetFramework>
-    <Nullable>disable</Nullable>
-    <ImplicitUsings>enable</ImplicitUsings>    
-  </PropertyGroup>
-
+	<PropertyGroup>
+		<TargetFramework>net7.0</TargetFramework>
+		<Nullable>disable</Nullable>
+		<ImplicitUsings>enable</ImplicitUsings>
+	</PropertyGroup>
+	<ItemGroup>
+		<Using Include="System.IdentityModel.Tokens"/>
+		<Using Include="Microsoft.IdentityModel.Tokens" />
+	</ItemGroup>
 </Project>

@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { forkJoin } from 'rxjs';
-import { IAgeGroup } from 'src/app/shared/models/ageGroup';
-import { IBrand } from '../../shared/models/brand';
-import { IGender } from '../../shared/models/gender';
-import { IProduct, ProductFormValues } from '../../shared/models/product';
-import { IType } from '../../shared/models/productType';
+import { AgeGroup } from 'src/app/shared/models/ageGroup';
+import { Brand } from '../../shared/models/brand';
+import { Gender } from '../../shared/models/gender';
+import { Product, ProductFormValues } from '../../shared/models/product';
+import { Type } from '../../shared/models/productType';
 import { ShopService } from '../../shop/shop.service';
 import { AdminService } from '../admin.service';
 
@@ -15,12 +15,12 @@ import { AdminService } from '../admin.service';
   styleUrls: ['./edit-product.component.scss'],
 })
 export class EditProductComponent implements OnInit {
-  product: IProduct;
+  product: Product;
   productFormValues: ProductFormValues;
-  brands: IBrand[];
-  types: IType[];
-  genders: IGender[];
-  ageGroups: IAgeGroup[];
+  brands: Brand[];
+  types: Type[];
+  genders: Gender[];
+  ageGroups: AgeGroup[];
 
   constructor(
     private adminService: AdminService,

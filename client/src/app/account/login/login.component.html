@@ -5,11 +5,13 @@
                 <h1 class="h3 mb-3 fw-normal">Login</h1>
             </div>
 
-            <app-text-input formControlName="email" [label]="'Email Address'"></app-text-input>
-            <app-text-input formControlName="password" [label]="'Password'" [type]="'password'"></app-text-input>
+            <app-text-input [formControl]="loginForm.controls['email']" [label]="'Email Address'"></app-text-input>
+            <app-text-input [formControl]="loginForm.controls['password']" [label]="'Password'" [type]="'password'"></app-text-input>
 
-           
-            <button [disabled]="loginForm.invalid" class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
+           <div class="d-grid">
+            <button [disabled]="loginForm.invalid" class="btn btn-lg btn-primary mt-3" type="submit">Sign in</button>
+           </div>
+            
         </form>
     </div>    
 </div>
